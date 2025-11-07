@@ -1,23 +1,13 @@
 <script setup>
-
+import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold text-blue-500">Hello Tailwind!</h1>
+  <div class="min-h-screen bg-gray-50 text-gray-800">
+    <Navbar />
+    <main class="p-8">
+      <RouterView />
+    </main>
+  </div>
 </template>
 
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
