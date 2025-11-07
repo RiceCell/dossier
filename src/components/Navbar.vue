@@ -1,11 +1,24 @@
 <template>
-  <nav class="bg-blue-600 text-white shadow-lg">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-      <h1 class="text-xl font-semibold">Rasil’s Portfolio</h1>
-      <div class="space-x-6">
-        <RouterLink to="/" class="hover:text-blue-200">Home</RouterLink>
-        <RouterLink to="/about" class="hover:text-blue-200">About</RouterLink>
-        <RouterLink to="/projects" class="hover:text-blue-200">Projects</RouterLink>
+  <nav class="bg-indigo-900 text-white shadow-lg" style="background-color: #14161a;">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+      <!-- Home link here-->
+      <RouterLink 
+        to="/" 
+        class="text-xl font-semibold hover:text-blue-300 transition duration-200"
+      >
+        Russel's Dossier
+      </RouterLink>
+     
+      <!-- Navigation links -->
+      <div class="space-x-6 text-lg">
+        <RouterLink to="/projects" class="hover:text-yellow-200 transition duration-200">Projects</RouterLink>
+        <RouterLink to="/stuffs" class="hover:text-blue-200 transition duration-200">Stuffs</RouterLink>
+        <RouterLink to="/contact" class="hover:text-green-200 transition duration-200">Contact</RouterLink>
+      </div>
+
+      <!-- Right-side toggle (placeholder for future) -->
+      <div class="space-x-2 text-sm">
+        <h3>Turn the lights on</h3>
       </div>
     </div>
   </nav>
