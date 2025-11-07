@@ -4,5 +4,10 @@
     <p class="text-gray-600">So the idea is that I want to make it like extremely dark for like 2 pages, BALI ONE page rajud ni sha nya mo
         scroll down ra then murag flashlight ang cursor like i want the feel nga ang dossier is very all over the place but idk how to incorporate
     the document feel of it then like naay option nga TURN ON THE LIGHT (light mode)</p>
+
+     <!-- Right-side toggle (placeholder for future) -->
+      <div class="space-x-2 text-sm">
+        <h3>Turn the lights on (NAAY OPTION SA UPPER RIGHT FOR THIS PAGE RA!!!)</h3>
+      </div>
   </section>
 </template>

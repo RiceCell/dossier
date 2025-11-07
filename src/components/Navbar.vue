@@ -3,11 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
       <!-- Home link here-->
       <RouterLink 
-        to="/" 
-        class="text-xl font-semibold hover:text-blue-300 transition duration-200"
-      >
-        Russel's Dossier
-      </RouterLink>
+        to="/" class="text-xl font-semibold hover:text-blue-300 transition duration-200"> My Dossier</RouterLink>
      
       <!-- Navigation links -->
       <div class="space-x-6 text-lg">
