@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Default (dark mode) */
+img.grayscale {
+    filter: grayscale(100%);
+    transition: filter 0.8s ease;
+}
+
+/* When the lights are on */
+body.light-mode img.grayscale {
+    filter: grayscale(0%);
+}
