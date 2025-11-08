@@ -21,6 +21,19 @@
         </p>
       </header>
 
+      <!-- Portrait -->
+      <div class = "flex justify-center my-16">
+        <div
+          class = "glitch-hover w-48 h-48 bg-gray-800 card-light-mode border-4 border-gray-700 rounded-full flex items-center justify-center p-4 transition-all duration-500"
+        >
+          <img 
+            src= "/russel_pic.jpg"
+            alt="My portrait"
+            class="rounded-full"
+          />
+        </div>
+      </div>
+
 
 
     </div>
