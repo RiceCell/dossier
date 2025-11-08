@@ -50,7 +50,7 @@
             to="/stuffs"
             class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[4deg]"
           >
-            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: A</h2>
+            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: RNB</h2>
             <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">STUFFS</h3>
             <div class="w-16 h-1 bg-blue-500 my-4"></div>
             <p class="font-sans text-gray-400 text-light-mode">
