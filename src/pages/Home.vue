@@ -34,6 +34,26 @@
         </div>
       </div>
 
+      <!--Cards-->
+      <section class = "w-full max-w-5xl mx-auto">
+        <div class = "flex flex-wrap justify-center gap-8 md:gap-12 p-4">
+          <RouterLink 
+            to="/projects"
+            class = "dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[-3deg]"
+          >
+          <h2 class="font-dossier text-2xl text-yellow-300">Case File: 001</h2>
+            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">PROJECTS</h3>
+            <div class="w-16 h-1 bg-red-600 my-4"></div>
+            <p class="font-sans text-gray-400 text-light-mode">
+              An array of my completed works: code, design, and implementation reports.
+            </p>
+            <span class="font-dossier text-red-500 text-6xl absolute right-4 bottom-4 opacity-20">TOP SECRET</span>
+          </RouterLink>
+
+"
+        </div>
+      </section>
+
 
 
     </div>
