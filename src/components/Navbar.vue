@@ -11,11 +11,6 @@
         <RouterLink to="/stuffs" class="hover:text-blue-200 transition duration-200">Stuffs</RouterLink>
         <RouterLink to="/contact" class="hover:text-green-200 transition duration-200">Contact</RouterLink>
       </div>
-
-      <!-- Right-side toggle (placeholder for future) -->
-      <div class="space-x-2 text-sm">
-        <h3>Turn the lights on</h3>
-      </div>
     </div>
   </nav>
 </template>

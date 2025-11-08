@@ -9,5 +9,7 @@
       <div class="space-x-2 text-sm">
         <h3>Turn the lights on (NAAY OPTION SA UPPER RIGHT FOR THIS PAGE RA!!!)</h3>
       </div>
+
+         <!-- I WAS ALSO THINKING OF MY PIC HAVING ANO ILLUSION THINGY-->
   </section>
 </template>
