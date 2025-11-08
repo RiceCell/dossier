@@ -21,7 +21,7 @@
         </p>
       </header>
 
-      <!-- Portrait -->
+      <!-- Mah face -->
       <div class = "flex justify-center my-16">
         <div
           class = "glitch-hover w-48 h-48 bg-gray-800 card-light-mode border-4 border-gray-700 rounded-full flex items-center justify-center p-4 transition-all duration-500"
@@ -41,7 +41,7 @@
             to="/projects"
             class = "dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[-3deg]"
           >
-          <h2 class="font-dossier text-2xl text-yellow-300">Case File: 001</h2>
+            <h2 class="font-dossier text-2xl text-yellow-300">Case File: 001</h2>
             <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">PROJECTS</h3>
             <div class="w-16 h-1 bg-red-600 my-4"></div>
             <p class="font-sans text-gray-400 text-light-mode">
@@ -50,15 +50,34 @@
             <span class="font-dossier text-red-500 text-6xl absolute right-4 bottom-4 opacity-20">TOP SECRET</span>
           </RouterLink>
 
-"
+          <RouterLink
+            to="/stuffs"
+            class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[4deg]"
+          >
+            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: A</h2>
+            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">STUFFS</h3>
+            <div class="w-16 h-1 bg-blue-500 my-4"></div>
+            <p class="font-sans text-gray-400 text-light-mode">
+              Showcase of what I like: films, songs, and etcetera.
+            </p>
+            <span class="font-dossier text-blue-500 text-6xl absolute right-4 bottom-4 opacity-20">FOR REVIEW</span>
+          </RouterLink>
+
+          <RouterLink
+            to="/contact"
+            class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[-3deg]"
+          >
+            <h2 class="font-dossier text-2xl text-yellow-300">Memo: 6-7</h2>
+            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">CONTACT</h3>
+            <div class="w-16 h-1 bg-green-500 my-4"></div>
+            <p class="font-sans text-gray-400 text-light-mode">
+              Hire me I'm very broke.
+            </p>
+            <span class="font-dossier text-green-500 text-6xl absolute right-4 bottom-4 opacity-20">PRIVATE</span>
+          </RouterLink>
         </div>
       </section>
-
-
-
     </div>
-
-
   </div>
 
 </template>
@@ -124,5 +143,21 @@ body.light-mode .text-light-mode {
   color: #1f2937;
 }
 
+.dossier-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dossier-card:hover {
+  transform: translateY(-10px) rotate(0deg) !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  z-index: 10;
+}
+@keyframes glitch {
+  0%, 50%, 100% { transform: translate(0, 0); }
+  10%, 40% { transform: translate(-2px, 2px); }
+  20%, 30% { transform: translate(2px, -2px); }
+}
+.glitch-hover:hover {
+  animation: glitch 0.5s infinite;
+}
 
 </style>
