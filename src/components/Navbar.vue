@@ -8,8 +8,8 @@
       <!-- Navigation links -->
       <div class="space-x-6 text-lg">
         <RouterLink to="/projects" class="hover:text-yellow-200 transition duration-200">Projects</RouterLink>
-        <RouterLink to="/stuffs" class="hover:text-blue-200 transition duration-200">Stuffs</RouterLink>
-        <RouterLink to="/contact" class="hover:text-green-200 transition duration-200">Contact</RouterLink>
+        <RouterLink to="/stuffs" class="hover:text-yellow-200 transition duration-200">Stuffs</RouterLink>
+        <RouterLink to="/contact" class="hover:text-yellow-200 transition duration-200">Contact</RouterLink>
       </div>
     </div>
   </nav>
