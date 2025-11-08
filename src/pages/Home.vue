@@ -1,15 +1,58 @@
 <template>
-  <section class="text-center mt-16">
-    <h2 class="text-4xl font-bold text-blue-600 mb-4">This is Russel's Dossier. Then have boxes that link to project, stuffs and contact</h2>
-    <p class="text-gray-600">So the idea is that I want to make it like extremely dark for like 2 pages, BALI ONE page rajud ni sha nya mo
-        scroll down ra then murag flashlight ang cursor like i want the feel nga ang dossier is very all over the place but idk how to incorporate
-    the document feel of it then like naay option nga TURN ON THE LIGHT (light mode)</p>
+  <div class = "bg-black min-h-screen text-gray-300 font-sans transition-colors duration-500">
+    <div id = "flashlight"></div>
 
-     <!-- Right-side toggle (placeholder for future) -->
-      <div class="space-x-2 text-sm">
-        <h3>Turn the lights on (NAAY OPTION SA UPPER RIGHT FOR THIS PAGE RA!!!)</h3>
-      </div>
+    <button
+      id="theme-toggle"
+      class="fixed top-6 right-6 z-[999] bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-dossier hover:bg-gray-600 transition-colors"
+      @click = "toggleTheme"
+    >
+    💡
+    </button>
 
-         <!-- I WAS ALSO THINKING OF MY PIC HAVING ANO ILLUSION THINGY-->
-  </section>
+    <!--Main shit here-->
+    <div class ="relative min-h-screen w-full p-8 md:p-16 overflow-hidden">
+      <header class ="text-center my-16 md:my-24">
+        <h1 class = "font-dossier text-5xl md:text-7xl font-bold text-gray-100 text-light-mode transition-colors duration-500">
+          [ RUSSEL'S DOSSIER ]
+        </h1>
+      </header>
+    </div>
+
+
+  </div>
+
 </template>
+
+
+<script setup>
+import {onMounted} from 'vue'
+
+</script>
+
+<style scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;700&display=swap');
+
+  .font-dossier{
+    font-family: 'Special Elite', monospace;
+  }
+  .font-sans{
+    font-family: 'Inter', sans-serif;
+  }
+
+  #flashlight{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle 300px at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.85) 40%,
+    rgba(0, 0, 0, 0.98) 100%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: background 0.1s ease-out;
+}
+
+</style>
