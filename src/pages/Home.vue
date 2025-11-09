@@ -54,7 +54,7 @@
             <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">STUFFS</h3>
             <div class="w-16 h-1 bg-blue-500 my-4"></div>
             <p class="font-sans text-gray-400 text-light-mode">
-              Showcase of what I like: films, songs, and etcetera.
+              A showcase of things that I admire and obsessed with: films, songs, and many more.
             </p>
             <span class="font-dossier text-blue-500 text-6xl absolute right-4 bottom-4 opacity-20">FOR REVIEW</span>
           </RouterLink>
