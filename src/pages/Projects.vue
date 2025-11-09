@@ -8,7 +8,6 @@
       <div class="mb-12 p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-inner">
         <h2 class="text-xl font-semibold mb-3 text-gray-700">Distribution</h2>
         
-        <!-- Progress Bar -->
         <div class="h-2 flex w-full rounded-full overflow-hidden mb-3 shadow-md">
           <div 
             v-for="stat in calculatedStats.stats" 
@@ -20,7 +19,6 @@
           ></div>
         </div>
 
-        <!-- Legend -->
         <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <div v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center text-gray-600">
             <div :class="[stat.colorClass, 'w-3 h-3 rounded-full mr-2']"></div>
@@ -32,7 +30,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        <!-- Project card blueprint -->
         <div 
           v-for="project in projects" 
           :key="project.id"
@@ -52,9 +49,7 @@
           "
         >
 
-          <!-- PROJECT IMAGE BLOCK (Dynamic) -->
           <div class="h-40 bg-gray-100 rounded-lg mb-6 overflow-hidden">
-            <!-- This part checks if the URL exists -->
             <img 
               v-if="project.imageUrl"
               :src="project.imageUrl" 
@@ -65,7 +60,6 @@
             </div>
           </div>
 
-          <!-- Content -->
           <h2 class="text-2xl font-bold mb-2 text-indigo-700">
             {{ project.title }}
           </h2>
@@ -100,7 +94,19 @@
         </div>
         
       </div>
-    </div>
+
+      <div class="mt-16"> <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
+          Earned Certificates
+        </h2>
+        
+        <div class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow-xl border border-gray-200">
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <!--Add ra here -->
+            <li>SQL Associate by DataCamp</li>
+            </ul>
+        </div>
+      </div>
+      </div>
   </div>
 </template>
 
