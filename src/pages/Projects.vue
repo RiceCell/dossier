@@ -1,6 +1,7 @@
 <template>
-  <section class="text-center mt-16">
-    <h2 class="text-4xl font-bold text-blue-600 mb-4">This is Russel's Dossier. Then have boxes that link to project, stuffs and contact</h2>
-    <p class="text-gray-600">PROJECTS NI</p>
-  </section>
+  <div class = "bg-white min-h-screen text-gray-300 font-sans transition-colors duration-500">
+    
+
+  </div>
+ 
 </template>

@@ -50,7 +50,7 @@
             to="/stuffs"
             class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[4deg]"
           >
-            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: RNB</h2>
+            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: B</h2>
             <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">STUFFS</h3>
             <div class="w-16 h-1 bg-blue-500 my-4"></div>
             <p class="font-sans text-gray-400 text-light-mode">
@@ -143,8 +143,8 @@ body.light-mode .text-light-mode {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .dossier-card:hover {
-  transform: translateY(-10px) rotate(0deg) !important;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  transform: translateY(-20px) rotate(0deg) !important;
+  box-shadow: 0 10px 100px rgba(255, 255, 255, 0.1);
   z-index: 10;
 }
 @keyframes glitch {
