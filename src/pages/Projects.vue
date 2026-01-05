@@ -128,7 +128,7 @@ const projects = ref([
   { 
     id: 1, 
     title: 'Project CleanUp', 
-    description: 'A waste disposal tracker as part of a project for CMSC21 Finals. Awarded 4th Best Project overall.',
+    description: 'A waste disposal tracker application as part of a project for CMSC21 Finals. Awarded 4th Best Project overall.',
     tracks: ['QT', 'C++'],
     imageUrl: '/clean_up.png'
   },
@@ -155,9 +155,10 @@ const projects = ref([
   },
   { 
     id: 5, 
-    title: 'Naani / Fallasee', 
-    description: 'To be made passion project',
-    tracks: ['kauyabon'] 
+    title: 'Fallasee', 
+    description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break. ',
+    tracks: ['Tailwind', 'Javascript'],
+    imageUrl: '/fallasee.png'
   },
 ]);
 
