@@ -124,7 +124,7 @@ const trackColors = {
   // To add more language soon plsplspls
 };
 
-// All projects here
+// AALL PROJECTS HERE
 const projects = ref([
   { 
     id: 1, 
