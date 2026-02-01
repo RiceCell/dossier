@@ -120,6 +120,7 @@ const trackColors = {
   'Tailwind': 'bg-blue-400',
   'Javascript': 'bg-orange-500',
   'PostgreSQL': 'bg-yellow-400',
+  'GDScript': 'bg-purple-800'
   // To add more language soon plsplspls
 };
 
