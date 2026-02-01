@@ -160,6 +160,13 @@ const projects = ref([
     tracks: ['Tailwind', 'Javascript'],
     imageUrl: '/fallasee.png'
   },
+  {
+    id: 6,
+    title: 'Crossroads of Us',
+    description: 'An Exit 8–inspired 2D top-down game presented at UPCSG GameJam 2026 by the team TheWinnerTakesItAllTheLoserStandingSmall.',
+    tracks: ['GDScript'],
+    imageUrl: '/gamejam.jpg'
+  }
 ]);
 
 // Computed property to calculate overall track usage for the stats bar gpt slop hehe
