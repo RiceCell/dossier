@@ -245,7 +245,7 @@ const calculatedStats = computed(() => {
 }
 
 .page-shell.light-mode {
-  background-color: #c7bea9; /* The exact darker cream from your Home.vue */
+  background-color: var(--light-bg); /* The exact darker cream from your Home.vue */
 }
 
 /* Base Liquid Glass for Panels and Cards */
@@ -273,13 +273,13 @@ const calculatedStats = computed(() => {
 
 /* ---------- Light Mode Overrides ---------- */
 
-:global(.light-mode) .theme-heading { color: #000000 !important; }
-:global(.light-mode) .theme-subheading { color: #1f2937 !important; }
-:global(.light-mode) .theme-text { color: #111827 !important; }
+:global(.light-mode) .theme-heading { color: var(--light-text-black) !important; }
+:global(.light-mode) .theme-subheading { color: var(--light-text-navy) !important; }
+:global(.light-mode) .theme-text { color: var(--light-text-dark) !important; }
 
 :global(.light-mode) .glass-panel,
 :global(.light-mode) .glass-card {
-  background: rgba(245, 242, 235, 0.5); 
+  background: var(--light-card-bg); 
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   border-left: 1px solid rgba(255, 255, 255, 0.8);
@@ -296,6 +296,6 @@ const calculatedStats = computed(() => {
 :global(.light-mode) .theme-badge {
   background: rgba(0, 0, 0, 0.05);
   border-color: rgba(0, 0, 0, 0.1);
-  color: #1f2937 !important;
+  color: var(--light-text-navy) !important;
 }
 </style>

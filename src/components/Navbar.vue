@@ -180,22 +180,22 @@ import { isLightOn, toggleTheme } from '../theme.js'
 
 /* Solid Light Mode Background matching your new cream color */
 .light-mode .sidebar-bg {
-  background-color: #beb49e !important; /* Slightly darker than page background for depth */
-  border-right-color: #a89d87 !important; 
+  background-color: var(--light-bg-deep) !important; /* Slightly darker than page background for depth */
+  border-right-color: var(--light-border) !important; 
 }
 
 .light-mode .sidebar-bg-mobile {
-  background-color: #beb49e !important;
-  border-top-color: #a89d87 !important;
+  background-color: var(--light-bg-deep) !important;
+  border-top-color: var(--light-border) !important;
 }
 
 /* Force Text Colors */
-.light-mode .theme-title { color: #111827 !important; }
-.light-mode .theme-text { color: #4b5563 !important; }
-.light-mode .theme-text:hover { color: #000000 !important; }
+.light-mode .theme-title { color: var(--light-text-dark) !important; }
+.light-mode .theme-text { color: var(--light-text-gray) !important; }
+.light-mode .theme-text:hover { color: var(--light-text-black) !important; }
 
 .light-mode .router-link-active.nav-link {
-  color: #000000 !important;
+  color: var(--light-text-black) !important;
   font-weight: bold;
 }
 

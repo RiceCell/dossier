@@ -1,5 +1,35 @@
 @import "tailwindcss";
 
+/* ============================================
+   LIGHT MODE PALETTE — change colors here only.
+   Every page (Home, Projects, Stuffs, Contact,
+   Navbar) reads from these variables.
+   ============================================ */
+:root {
+    --light-bg: #c7bea9;
+    /* main page background (Home/Projects/Stuffs/Contact) */
+    --light-bg-deep: #beb49e;
+    /* navbar sidebar background (slightly darker for depth) */
+    --light-border: #a89d87;
+    /* navbar borders */
+
+    --light-text-warm: #2b2824;
+    /* Home heading/subtitle text */
+    --light-text-dark: #111827;
+    /* nav title, projects body text */
+    --light-text-gray: #4b5563;
+    /* nav links, Home card descriptions */
+    --light-text-navy: #1f2937;
+    /* Home card titles, Projects subheading */
+    --light-text-black: #000000;
+    /* active nav link, Projects heading */
+
+    --light-card-bg: rgba(245, 242, 235, 0.5);
+    /* Projects glass panels/cards */
+    --light-card-bg-alt: rgba(230, 222, 208, 0.6);
+    /* Home dossier cards */
+}
+
 /* Default (dark mode) */
 img.grayscale {
     filter: grayscale(100%);
