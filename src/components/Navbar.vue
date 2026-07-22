@@ -1,5 +1,5 @@
 <template>
-  <nav class="sidebar-wrapper transition-colors duration-500 z-50">
+  <nav class="sidebar-wrapper transition-colors duration-500 z-50" :class="{ 'light-mode': isLightOn }">
     
     <!-- Desktop Sidebar -->
     <div class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 border-r px-8 py-12 sidebar-bg transition-colors duration-500">
@@ -179,32 +179,32 @@ import { isLightOn, toggleTheme } from '../theme.js'
 /* ---------- Light Mode Overrides ---------- */
 
 /* Solid Light Mode Background matching your new cream color */
-:global(body.light-mode) .sidebar-bg {
+.light-mode .sidebar-bg {
   background-color: #beb49e !important; /* Slightly darker than page background for depth */
   border-right-color: #a89d87 !important; 
 }
 
-:global(body.light-mode) .sidebar-bg-mobile {
+.light-mode .sidebar-bg-mobile {
   background-color: #beb49e !important;
   border-top-color: #a89d87 !important;
 }
 
 /* Force Text Colors */
-:global(body.light-mode) .theme-title { color: #111827 !important; }
-:global(body.light-mode) .theme-text { color: #4b5563 !important; }
-:global(body.light-mode) .theme-text:hover { color: #000000 !important; }
+.light-mode .theme-title { color: #111827 !important; }
+.light-mode .theme-text { color: #4b5563 !important; }
+.light-mode .theme-text:hover { color: #000000 !important; }
 
-:global(body.light-mode) .router-link-active.nav-link {
+.light-mode .router-link-active.nav-link {
   color: #000000 !important;
   font-weight: bold;
 }
 
-:global(body.light-mode) .theme-switch-track {
+.light-mode .theme-switch-track {
   background: rgba(0, 0, 0, 0.1) !important;
   border-color: rgba(0, 0, 0, 0.2) !important;
 }
 
-:global(body.light-mode) .theme-switch[aria-checked="true"] .theme-switch-track {
+.light-mode .theme-switch[aria-checked="true"] .theme-switch-track {
   background: rgba(122, 91, 24, 0.15) !important;
   border-color: rgba(122, 91, 24, 0.35) !important;
 }
