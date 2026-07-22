@@ -1,130 +1,120 @@
 <template>
-  <div class="bg-white min-h-screen text-gray-800 font-sans p-6 md:p-12 transition-colors duration-500">
-    <div class="max-w-7xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center text-gray-900 tracking-wider">
-        My Repertoire
-      </h1>
+  <!-- Added md:ml-64 to push the entire page content to the right of the sidebar -->
+  <div class="page-shell font-sans md:ml-64 p-6 md:p-12 transition-colors duration-500 min-h-screen">
+    <div class="max-w-7xl mx-auto mt-16 md:mt-0">
+      
+      <header class="mb-12 text-center">
+        <h1 class="font-dossier text-3xl md:text-5xl font-bold tracking-wider theme-heading transition-colors duration-500">
+          [ MY REPERTOIRE ]
+        </h1>
+        <p class="font-dossier theme-subheading mt-2 transition-colors duration-500">INDEX OF COMPLETED PROJECTS IN THE PAST</p>
+      </header>
 
-      <div class="mb-12 p-4 bg-gray-50 rounded-xl border border-gray-200 shadow-inner">
-        <h2 class="text-xl font-semibold mb-3 text-gray-700">Distribution</h2>
+      <!-- Stats Bar (Glassy) -->
+      <div class="mb-12 p-6 glass-panel rounded-xl">
+        <h2 class="font-dossier text-lg md:text-xl font-bold mb-4 theme-heading transition-colors duration-500">RESOURCE DISTRIBUTION</h2>
         
-        <div class="h-2 flex w-full rounded-full overflow-hidden mb-3 shadow-md">
+        <div class="h-3 flex w-full rounded-full overflow-hidden mb-4 bg-black/40 shadow-inner">
           <div 
             v-for="stat in calculatedStats.stats" 
             :key="stat.name"
             :class="stat.colorClass"
             :style="{ width: stat.percentage + '%' }"
             :title="`${stat.name}: ${stat.percentage}% (${stat.count} projects)`"
-            class="transition-all duration-500 ease-out"
+            class="transition-all duration-1000 ease-out hover:brightness-125"
           ></div>
         </div>
 
-        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <div v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center text-gray-600">
-            <div :class="[stat.colorClass, 'w-3 h-3 rounded-full mr-2']"></div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-dossier">
+          <div v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center theme-text transition-colors duration-500">
+            <div :class="[stat.colorClass, 'w-3 h-3 rounded-sm mr-2 shadow-sm']"></div>
             <span>{{ stat.name }}</span>
-            <span class="ml-1 font-medium text-gray-900">{{ stat.percentage }}%</span>
+            <span class="ml-1 opacity-60">[{{ stat.percentage }}%]</span>
           </div>
         </div>
       </div>
 
+      <!-- Project Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
         <div 
           v-for="project in projects" 
           :key="project.id"
-          class="
-            bg-white 
-            p-6 
-            rounded-xl 
-            shadow-xl 
-            border border-gray-200
-            transform 
-            transition 
-            duration-300 
-            hover:shadow-2xl 
-            hover:shadow-gray-300/60
-            hover:scale-[1.02]
-            flex flex-col
-          "
+          class="glass-card p-6 flex flex-col group"
         >
-
-          <div class="h-40 bg-gray-100 rounded-lg mb-6 overflow-hidden">
+          <!-- Image Container -->
+          <div class="h-44 bg-black/50 rounded-lg mb-6 overflow-hidden border border-gray-500/30 relative">
+            <div class="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none mix-blend-overlay"></div>
             <img 
-              v-if="project.imageUrl"
-              :src="project.imageUrl" 
-              :alt="`Screenshot of ${project.title}`" 
-              class="w-full h-full object-cover transition duration-300 hover:scale-105"
-            />
-            <div v-else class="w-full h-full flex items-center justify-center border border-dashed border-gray-300">
+  v-if="project.imageUrl"
+  :src="project.imageUrl" 
+  :alt="`Screenshot of ${project.title}`" 
+  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+/>
+            <div v-else class="w-full h-full flex items-center justify-center font-dossier text-gray-500">
+              [ NO IMAGE DATA ]
             </div>
           </div>
 
-          <h2 class="text-2xl font-bold mb-2 text-indigo-700">
+          <h2 class="font-dossier text-xl font-bold mb-2 text-red-400 group-hover:text-red-300 transition-colors">
             {{ project.title }}
           </h2>
-          <p class="text-gray-600 text-sm flex-grow mb-4">
+          
+          <p class="text-sm flex-grow mb-6 theme-text opacity-90 leading-relaxed transition-colors duration-500">
             {{ project.description }}
           </p>
 
-          <div v-if="project.tracks && project.tracks.length > 0" class="flex flex-wrap gap-x-3 gap-y-1 mb-4">
-            <div v-for="track in project.tracks" :key="track" class="flex items-center text-xs font-medium text-gray-700 bg-gray-100 px-2 py-1 rounded-full border border-gray-200">
-              <div :class="[trackColors[track] || 'bg-gray-500', 'w-2 h-2 rounded-full mr-1']"></div>
+          <!-- Tech Tracks -->
+          <div v-if="project.tracks && project.tracks.length > 0" class="flex flex-wrap gap-2 mb-6">
+            <div v-for="track in project.tracks" :key="track" 
+                 class="flex items-center text-xs font-mono px-2 py-1 rounded border border-gray-500/30 bg-black/10 theme-badge transition-colors duration-500">
+              <div :class="[trackColors[track] || 'bg-gray-500', 'w-1.5 h-1.5 rounded-full mr-2']"></div>
               {{ track }}
             </div>
           </div>
           
-          <div class="mt-4">
-            <button class="
-              bg-indigo-600 
-              hover:bg-indigo-700 
-              text-white 
-              font-semibold 
-              py-2 px-4 
-              rounded-lg 
-              transition 
-              duration-200 
-              shadow-lg 
-              shadow-indigo-500/50
-            ">
-              View
+          <!-- View Button -->
+          <div class="mt-auto">
+            <button class="w-full font-dossier text-sm py-2 px-4 rounded border border-red-500/50 text-red-400 bg-red-500/10 hover:bg-red-500/20 hover:border-red-400 transition-all duration-200">
+              [ INITIATE VIEW ]
             </button>
           </div>
-
         </div>
-        
       </div>
 
-      <div class="mt-16"> <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">
-          Earned Certificates
+      <!-- Certificates -->
+      <div class="mt-20 text-center pb-12"> 
+        <h2 class="font-dossier text-2xl font-bold mb-6 theme-heading transition-colors duration-500">
+          [ LOGGED CLEARANCES & CERTIFICATES ]
         </h2>
         
-        <div class="max-w-lg mx-auto bg-white p-6 rounded-xl shadow-xl border border-gray-200">
-          <ul class="list-disc list-inside space-y-2 text-gray-700">
-            <!--Add ra here -->
-            <li>SQL Associate by DataCamp</li>
-            </ul>
+        <div class="max-w-xl mx-auto glass-panel p-6">
+          <ul class="space-y-3 text-left font-sans theme-text transition-colors duration-500">
+            <li class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">▸</span>
+              <span><strong>SQL Associate</strong> — Issued by DataCamp</span>
+            </li>
+          </ul>
         </div>
       </div>
-      </div>
+    </div>
   </div>
 </template>
-
 
 <script setup>
 import { ref, computed } from 'vue';
 
 const trackColors = {
-  'C++': 'bg-indigo-600',
-  'QT': 'bg-pink-600',
+  'C++': 'bg-indigo-500',
+  'QT': 'bg-pink-500',
   'Tailwind': 'bg-blue-400',
   'Javascript': 'bg-orange-500',
   'PostgreSQL': 'bg-yellow-400',
-  'GDScript': 'bg-purple-800'
-  // To add more language soon plsplspls
+  'GDScript': 'bg-purple-500',
+  'Vue': 'bg-emerald-500',
+  'CSS': 'bg-blue-600',
+  'Typescript': 'bg-blue-400'
 };
 
-// AALL PROJECTS HERE
 const projects = ref([
   { 
     id: 1, 
@@ -157,7 +147,7 @@ const projects = ref([
   { 
     id: 5, 
     title: 'Fallasee', 
-    description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break. ',
+    description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
     tracks: ['Tailwind', 'Javascript'],
     imageUrl: '/fallasee.png'
   },
@@ -168,7 +158,6 @@ const projects = ref([
     tracks: ['GDScript'],
     imageUrl: '/gamejam.jpg'
   },
-
   {
     id: 7,
     title: 'Blind Spot',
@@ -178,12 +167,10 @@ const projects = ref([
   }
 ]);
 
-// Computed property to calculate overall track usage for the stats bar gpt slop hehe
 const calculatedStats = computed(() => {
     const usage = {};
     let totalTracks = 0;
 
-    // 1. Tallying
     projects.value.forEach(project => {
         if (project.tracks) {
             project.tracks.forEach(track => {
@@ -193,17 +180,78 @@ const calculatedStats = computed(() => {
         }
     });
 
-    // 2. Format into an array with percentages
     const statsArray = Object.keys(usage).map(track => ({
         name: track,
         count: usage[track],
         percentage: totalTracks > 0 ? ((usage[track] / totalTracks) * 100).toFixed(1) : 0,
-        colorClass: trackColors[track] || 'bg-gray-500' // Use defined color or a fallback
+        colorClass: trackColors[track] || 'bg-gray-500'
     }));
 
-    // Sort descending by usage count for the legend
     statsArray.sort((a, b) => b.count - a.count);
 
     return { stats: statsArray, totalTracks };
 });
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;700&display=swap');
+
+.font-dossier { font-family: 'Special Elite', monospace; }
+.font-sans { font-family: 'Inter', sans-serif; }
+
+/* ---------- Light Mode Overrides ---------- */
+:global(.light-mode) .theme-heading { color: #000000 !important; } /* Pure black */
+:global(.light-mode) .theme-subheading { color: #1f2937 !important; } /* Very dark gray */
+:global(.light-mode) .theme-text { color: #111827 !important; } /* Almost black */
+
+/* Base Liquid Glass for Panels and Cards */
+.glass-panel, .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+}
+
+/* Card Specifics */
+.glass-card {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.5s ease;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(220, 38, 38, 0.15), 0 0 20px rgba(220, 38, 38, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Light Mode Overrides ---------- */
+/* Using a broader selector so it catches the light mode class wherever you put it */
+:global(.light-mode) .theme-heading { color: #111827 !important; }
+:global(.light-mode) .theme-subheading { color: #4b5563 !important; }
+:global(.light-mode) .theme-text { color: #374151 !important; }
+
+:global(.light-mode) .glass-panel,
+:global(.light-mode) .glass-card {
+  background: rgba(245, 242, 235, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+:global(.light-mode) .glass-card {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+:global(.light-mode) .glass-card:hover {
+  box-shadow: 0 20px 40px -10px rgba(220, 38, 38, 0.2);
+}
+
+:global(.light-mode) .theme-badge {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1f2937 !important;
+}
+</style>
