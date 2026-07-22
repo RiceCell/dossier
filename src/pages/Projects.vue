@@ -167,7 +167,7 @@ const projects = ref([
     id: 5, 
     title: 'Fallasee', 
     description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
-    tracks: ['Tailwind', 'Javascript'],
+    tracks: ['Tailwind', 'Javascript', 'Gemini API'],
     imageUrl: '/fallasee.png',
     link: null
   },
@@ -186,6 +186,22 @@ const projects = ref([
     tracks: ['Vue', 'CSS', 'Typescript'],
     imageUrl: '/innovationcup.jpg',
     link: null
+  },
+  {
+    id: 8,
+    title: 'HuddleUP',
+    description: 'A lightweight, real-time collaborative task management app that lets groups create temporary shared rooms to organize and track tasks together. Once all tasks within a room are completed by its members, the room automatically dissolves. This final project earned a perfect score for CMSC 127: File Processing and Database Systems.',
+    tracks: ['Vue', 'CSS', 'Typescript'],
+    imageUrl: '/huddleup.jpg',
+    link: 'https://github.com/DareDevilLuc/HuddleUP'
+  },
+  {
+    id: 9,
+    title: 'Onboarding & Retention AI Employee',
+    description: 'A robust AI Orchestrator built for the Supervity Autopilot Hackathon with Kyle Casirayan, representing Team Hash:Map. It coordinates six distinct AI Operators to monitor siloed HR, IT, and payroll systems, catching IT delays and spotting flight risks early to protect crucial day-90 retention rates.',
+    tracks: ['Supervity'],
+    imageUrl: '/supervity.png', 
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7484687732963962880/'
   }
 ]);
 
