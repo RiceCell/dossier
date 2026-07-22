@@ -236,6 +236,7 @@ onBeforeUnmount(() => {
   position: fixed;
   top: 1rem;
   right: 1.25rem;
+  width: 96px;
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -248,6 +249,7 @@ onBeforeUnmount(() => {
   .pull-switch {
     top: 1.5rem;
     right: 2rem;
+    width: 108px;
   }
 }
 

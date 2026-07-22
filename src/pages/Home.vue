@@ -2,7 +2,7 @@
   <!-- Dynamically bind the background and text colors with a deeper white/cream tone -->
   <div 
     class="page-shell font-sans transition-colors duration-500"
-    :class="isLightOn ? 'light-mode bg-[var(--light-bg)] text-[var(--light-text-warm)]' : 'bg-black text-gray-300'"
+    :class="isLightOn ? 'light-mode bg-[#c7bea9] text-[#2b2824]' : 'bg-black text-gray-300'"
   >
 
     <div v-show="!isLightOn" id="flashlight"></div>
@@ -10,10 +10,10 @@
 
     <div class="content-wrap relative z-10 w-full">
       <header class="header-block text-center md:mt-0">
-        <h1 class="dossier-title font-dossier font-bold transition-colors duration-500" :class="isLightOn ? 'text-[var(--light-text-warm)]' : 'text-gray-100'">
+        <h1 class="dossier-title font-dossier font-bold transition-colors duration-500" :class="isLightOn ? 'text-[#2b2824]' : 'text-gray-100'">
           [ MY DOSSIER ]
         </h1>
-        <p class="dossier-subtitle font-dossier transition-colors duration-500" :class="isLightOn ? 'text-[var(--light-text-warm)]' : 'text-gray-100'">
+        <p class="dossier-subtitle font-dossier transition-colors duration-500" :class="isLightOn ? 'text-[#2b2824]' : 'text-gray-100'">
           HERE LIES EVERYTHING ABOUT MYSELF!
         </p>
       </header>
@@ -92,7 +92,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import PullSwitch from '../components/PullSwitch.vue'
+import PullSwitch from '../components/PullSwitch.vue' 
 import { isLightOn, toggleTheme } from '../theme.js'
 
 const handleTilt = (e) => {
@@ -300,7 +300,7 @@ onMounted(() => {
 
 /* ---------- Light Mode Overrides ---------- */
 .light-mode .dossier-card {
-  background: var(--light-card-bg-alt); 
+  background: rgba(230, 222, 208, 0.6); 
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.8);
   border-left: 1px solid rgba(255, 255, 255, 0.8);
@@ -312,8 +312,8 @@ onMounted(() => {
 }
 
 /* Fix text colors washing out in light mode */
-.light-mode .title-text { color: var(--light-text-navy); }
-.light-mode .desc-text { color: var(--light-text-gray); }
+.light-mode .title-text { color: #1f2937; }
+.light-mode .desc-text { color: #4b5563; }
 .light-mode .card-red .header-text { color: #dc2626; }
 .light-mode .card-blue .header-text { color: #2563eb; }
 .light-mode .card-green .header-text { color: #16a34a; }
