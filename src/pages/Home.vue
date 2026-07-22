@@ -91,14 +91,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import PullSwitch from '../components/PullSwitch.vue' 
-
-const isLightOn = ref(false)
-
-const toggleTheme = () => {
-  isLightOn.value = !isLightOn.value
-}
+import { onMounted } from 'vue'
+import PullSwitch from '../components/PullSwitch.vue'
+import { isLightOn, toggleTheme } from '../theme.js'
 
 const handleTilt = (e) => {
   const card = e.currentTarget

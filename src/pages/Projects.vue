@@ -1,5 +1,5 @@
 <template>
-  <div class="page-shell font-sans md:ml-64 p-6 md:p-12 transition-colors duration-500 min-h-screen">
+  <div class="page-shell font-sans md:ml-64 p-6 md:p-12 transition-colors duration-500 min-h-screen" :class="{ 'light-mode': isLightOn }">
     <div class="max-w-7xl mx-auto mt-16 md:mt-0">
       
       <header class="mb-12 text-center">
@@ -117,6 +117,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { isLightOn } from '../theme.js';
 
 const trackColors = {
   'C++': 'bg-indigo-500',
@@ -243,7 +244,7 @@ const calculatedStats = computed(() => {
   color: #d1d5db;
 }
 
-:global(body.light-mode) .page-shell {
+.page-shell.light-mode {
   background-color: #c7bea9; /* The exact darker cream from your Home.vue */
 }
 

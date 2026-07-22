@@ -5,9 +5,31 @@
     <div class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 border-r px-8 py-12 sidebar-bg transition-colors duration-500">
       
       <!-- Title -->
-      <RouterLink to="/" class="font-dossier text-2xl font-bold text-gray-100 theme-title hover:text-yellow-500 transition-colors mb-16 tracking-wide block">
+      <RouterLink to="/" class="font-dossier text-2xl font-bold text-gray-100 theme-title hover:text-yellow-500 transition-colors mb-10 tracking-wide block">
         My Dossier
       </RouterLink>
+
+      <!-- Theme Toggle -->
+      <button
+        type="button"
+        class="theme-switch mb-10"
+        role="switch"
+        :aria-checked="isLightOn"
+        aria-label="Toggle light mode"
+        @click="toggleTheme"
+      >
+        <span class="theme-switch-track">
+          <span class="theme-switch-thumb">
+            <svg v-if="isLightOn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+              <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </span>
+        <span class="font-dossier text-xs theme-text transition-colors">{{ isLightOn ? 'LIGHTS ON' : 'LIGHTS OFF' }}</span>
+      </button>
 
       <!-- Navigation Links -->
       <div class="flex flex-col space-y-6 font-dossier text-[17px]">
@@ -47,10 +69,34 @@
       <RouterLink to="/contact" class="p-2 text-gray-400 theme-text hover:text-white">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
       </RouterLink>
+
+      <button
+        type="button"
+        class="theme-switch theme-switch-mobile p-2"
+        role="switch"
+        :aria-checked="isLightOn"
+        aria-label="Toggle light mode"
+        @click="toggleTheme"
+      >
+        <span class="theme-switch-track">
+          <span class="theme-switch-thumb">
+            <svg v-if="isLightOn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+              <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+              <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </span>
+      </button>
     </div>
 
   </nav>
 </template>
+
+<script setup>
+import { isLightOn, toggleTheme } from '../theme.js'
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
@@ -66,6 +112,60 @@
 .sidebar-bg-mobile {
   background-color: #080808;
   border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle Switch */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-switch-track {
+  position: relative;
+  width: 42px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.theme-switch-thumb {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #cfc7b8;
+  color: #3a352e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background 0.3s ease, color 0.3s ease;
+}
+
+.theme-switch[aria-checked="true"] .theme-switch-track {
+  background: rgba(255, 216, 115, 0.25);
+  border-color: rgba(255, 216, 115, 0.5);
+}
+
+.theme-switch[aria-checked="true"] .theme-switch-thumb {
+  transform: translateX(20px);
+  background: #ffd873;
+  color: #7a5b18;
+  box-shadow: 0 0 8px 1px rgba(255, 216, 115, 0.7);
+}
+
+.theme-switch-mobile {
+  gap: 0;
 }
 
 /* Active Route Indicators */
@@ -97,5 +197,15 @@
 :global(body.light-mode) .router-link-active.nav-link {
   color: #000000 !important;
   font-weight: bold;
+}
+
+:global(body.light-mode) .theme-switch-track {
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+:global(body.light-mode) .theme-switch[aria-checked="true"] .theme-switch-track {
+  background: rgba(122, 91, 24, 0.15) !important;
+  border-color: rgba(122, 91, 24, 0.35) !important;
 }
 </style>

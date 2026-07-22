@@ -6,8 +6,8 @@ export const toggleTheme = () => {
     isLightOn.value = !isLightOn.value
 
     if (isLightOn.value) {
-        document.body.classList.add('project-light-mode')
+        document.body.classList.add('light-mode')
     } else {
-        document.body.classList.remove('project-light-mode')
+        document.body.classList.remove('light-mode')
     }
 }
