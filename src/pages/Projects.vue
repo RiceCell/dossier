@@ -1,5 +1,4 @@
 <template>
-  <!-- Added md:ml-64 to push the entire page content to the right of the sidebar -->
   <div class="page-shell font-sans md:ml-64 p-6 md:p-12 transition-colors duration-500 min-h-screen">
     <div class="max-w-7xl mx-auto mt-16 md:mt-0">
       
@@ -14,72 +13,88 @@
       <div class="mb-12 p-6 glass-panel rounded-xl">
         <h2 class="font-dossier text-lg md:text-xl font-bold mb-4 theme-heading transition-colors duration-500">RESOURCE DISTRIBUTION</h2>
         
-        <div class="h-3 flex w-full rounded-full overflow-hidden mb-4 bg-black/40 shadow-inner">
+        <div class="h-3 flex w-full rounded-full overflow-hidden mb-4 bg-black/40 shadow-inner" aria-hidden="true">
           <div 
             v-for="stat in calculatedStats.stats" 
             :key="stat.name"
             :class="stat.colorClass"
             :style="{ width: stat.percentage + '%' }"
-            :title="`${stat.name}: ${stat.percentage}% (${stat.count} projects)`"
             class="transition-all duration-1000 ease-out hover:brightness-125"
           ></div>
         </div>
 
-        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-dossier">
-          <div v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center theme-text transition-colors duration-500">
-            <div :class="[stat.colorClass, 'w-3 h-3 rounded-sm mr-2 shadow-sm']"></div>
+        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-dossier list-none p-0">
+          <li v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center theme-text transition-colors duration-500">
+            <span :class="[stat.colorClass, 'w-3 h-3 rounded-sm mr-2 shadow-sm']" aria-hidden="true"></span>
             <span>{{ stat.name }}</span>
             <span class="ml-1 opacity-60">[{{ stat.percentage }}%]</span>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
 
       <!-- Project Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div 
+      <h2 class="sr-only">Projects</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 list-none p-0">
+        <li
           v-for="project in projects" 
           :key="project.id"
-          class="glass-card p-6 flex flex-col group"
         >
-          <!-- Image Container -->
-          <div class="h-44 bg-black/50 rounded-lg mb-6 overflow-hidden border border-gray-500/30 relative">
-            <div class="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none mix-blend-overlay"></div>
-            <img 
-  v-if="project.imageUrl"
-  :src="project.imageUrl" 
-  :alt="`Screenshot of ${project.title}`" 
-  class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-/>
-            <div v-else class="w-full h-full flex items-center justify-center font-dossier text-gray-500">
-              [ NO IMAGE DATA ]
+          <article class="glass-card p-6 flex flex-col h-full group">
+            <!-- Image Container -->
+            <div class="h-44 bg-black/50 rounded-lg mb-6 overflow-hidden border border-gray-500/30 relative">
+              <div class="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none mix-blend-overlay"></div>
+              <img 
+                v-if="project.imageUrl"
+                :src="project.imageUrl" 
+                :alt="`Screenshot of ${project.title}`" 
+                loading="lazy"
+                class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div v-else class="w-full h-full flex items-center justify-center font-dossier text-gray-500">
+                [ NO IMAGE DATA ]
+              </div>
             </div>
-          </div>
 
-          <h2 class="font-dossier text-xl font-bold mb-2 text-red-400 group-hover:text-red-300 transition-colors">
-            {{ project.title }}
-          </h2>
-          
-          <p class="text-sm flex-grow mb-6 theme-text opacity-90 leading-relaxed transition-colors duration-500">
-            {{ project.description }}
-          </p>
+            <h3 class="font-dossier text-xl font-bold mb-2 text-red-400 group-hover:text-red-300 transition-colors">
+              {{ project.title }}
+            </h3>
+            
+            <p class="text-sm flex-grow mb-6 theme-text opacity-90 leading-relaxed transition-colors duration-500">
+              {{ project.description }}
+            </p>
 
-          <!-- Tech Tracks -->
-          <div v-if="project.tracks && project.tracks.length > 0" class="flex flex-wrap gap-2 mb-6">
-            <div v-for="track in project.tracks" :key="track" 
-                 class="flex items-center text-xs font-mono px-2 py-1 rounded border border-gray-500/30 bg-black/10 theme-badge transition-colors duration-500">
-              <div :class="[trackColors[track] || 'bg-gray-500', 'w-1.5 h-1.5 rounded-full mr-2']"></div>
-              {{ track }}
+            <!-- Tech Tracks -->
+            <ul v-if="project.tracks && project.tracks.length > 0" class="flex flex-wrap gap-2 mb-6 list-none p-0">
+              <li v-for="track in project.tracks" :key="track" 
+                   class="flex items-center text-xs font-mono px-2 py-1 rounded border border-gray-500/30 bg-black/10 theme-badge transition-colors duration-500">
+                <span :class="[trackColors[track] || 'bg-gray-500', 'w-1.5 h-1.5 rounded-full mr-2']" aria-hidden="true"></span>
+                {{ track }}
+              </li>
+            </ul>
+            
+            <!-- View Link -->
+            <div class="mt-auto">
+              <a
+                v-if="project.link"
+                :href="project.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="view-link w-full font-dossier text-sm py-2 px-4 rounded border border-red-500/50 text-red-400 bg-red-500/10 hover:bg-red-500/20 hover:border-red-400 transition-all duration-200 flex items-center justify-center gap-2"
+              >
+                [ VIEW ]
+                <span class="sr-only"> {{ project.title }} (opens in a new tab)</span>
+              </a>
+              <span
+                v-else
+                class="w-full font-dossier text-sm py-2 px-4 rounded border border-gray-600/40 text-gray-500 bg-gray-500/5 flex items-center justify-center gap-2 cursor-not-allowed"
+                aria-disabled="true"
+              >
+                [ LINK PENDING ]
+              </span>
             </div>
-          </div>
-          
-          <!-- View Button -->
-          <div class="mt-auto">
-            <button class="w-full font-dossier text-sm py-2 px-4 rounded border border-red-500/50 text-red-400 bg-red-500/10 hover:bg-red-500/20 hover:border-red-400 transition-all duration-200">
-              [ INITIATE VIEW ]
-            </button>
-          </div>
-        </div>
-      </div>
+          </article>
+        </li>
+      </ul>
 
       <!-- Certificates -->
       <div class="mt-20 text-center pb-12"> 
@@ -88,7 +103,7 @@
         </h2>
         
         <div class="max-w-xl mx-auto glass-panel p-6">
-          <ul class="space-y-3 text-left font-sans theme-text transition-colors duration-500">
+          <ul class="space-y-3 text-left font-sans theme-text transition-colors duration-500 list-none p-0">
             <li class="flex items-start">
               <span class="text-yellow-500 mr-3 mt-1">▸</span>
               <span><strong>SQL Associate</strong> — Issued by DataCamp</span>
@@ -121,49 +136,56 @@ const projects = ref([
     title: 'Project CleanUp', 
     description: 'A waste disposal tracker application as part of a project for CMSC21 Finals. Awarded 4th Best Project overall.',
     tracks: ['QT', 'C++'],
-    imageUrl: '/clean_up.png'
+    imageUrl: '/clean_up.png',
+    link: null // Add your links here when ready! E.g. 'https://github.com/your-username/repo'
   },
   { 
     id: 2, 
     title: 'i.skwelai', 
     description: 'A website generating educational roadmaps for schools in Cebu as a submission from Team M & Ems for the IBPAP Hack-It Challenge 2025. Helped present and pitch the final output.',
     tracks: ['Tailwind'],
-    imageUrl: '/iskwelai.png'
+    imageUrl: '/iskwelai.png',
+    link: null
   },
   { 
     id: 3, 
     title: 'LOOK! Productions', 
     description: 'An interactive website for LOOK! Productions, solely spearheaded by Sir Raphael Chamen in UP Cebu.',
     tracks: ['Tailwind', 'Javascript'],
-    imageUrl: '/look_site.png'
+    imageUrl: '/look_site.png',
+    link: null
   },
   { 
     id: 4, 
     title: 'Finding Dormy', 
     description: 'A matchmaking website for finding available dorms in Cebu built for the Cebu Hacktoberfest 2025 Hackathon. Partially finished.',
     tracks: ['Tailwind', 'PostgreSQL', 'Javascript'],
-    imageUrl: '/findingdormy.png'
+    imageUrl: '/findingdormy.png',
+    link: null
   },
   { 
     id: 5, 
     title: 'Fallasee', 
     description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
     tracks: ['Tailwind', 'Javascript'],
-    imageUrl: '/fallasee.png'
+    imageUrl: '/fallasee.png',
+    link: null
   },
   {
     id: 6,
     title: 'Crossroads of Us',
     description: 'An Exit 8–inspired 2D top-down game presented at UPCSG GameJam 2026 hosted by UPCSG by the team TheWinnerTakesItAllTheLoserStandingSmall.',
     tracks: ['GDScript'],
-    imageUrl: '/gamejam.jpg'
+    imageUrl: '/gamejam.jpg',
+    link: null
   },
   {
     id: 7,
     title: 'Blind Spot',
     description: 'An offline-first, AI-powered platform that predicts localized power and connectivity failures during typhoons. It aims to function as a disaster resilience engine within Cebu City. Presented and pitched at Innovation Cup 2026 hosted by the team The Russters. Ranked top 15 among 50 entries.',
     tracks: ['Vue', 'CSS', 'Typescript'],
-    imageUrl: '/innovationcup.jpg'
+    imageUrl: '/innovationcup.jpg',
+    link: null
   }
 ]);
 
@@ -199,10 +221,15 @@ const calculatedStats = computed(() => {
 .font-dossier { font-family: 'Special Elite', monospace; }
 .font-sans { font-family: 'Inter', sans-serif; }
 
-/* ---------- Light Mode Overrides ---------- */
-:global(.light-mode) .theme-heading { color: #000000 !important; } /* Pure black */
-:global(.light-mode) .theme-subheading { color: #1f2937 !important; } /* Very dark gray */
-:global(.light-mode) .theme-text { color: #111827 !important; } /* Almost black */
+/* Force Background Colors so NavBar has something to sit against */
+.page-shell {
+  background-color: #000000;
+  color: #d1d5db;
+}
+
+:global(body.light-mode) .page-shell {
+  background-color: #c7bea9; /* The exact darker cream from your Home.vue */
+}
 
 /* Base Liquid Glass for Panels and Cards */
 .glass-panel, .glass-card {
@@ -228,17 +255,17 @@ const calculatedStats = computed(() => {
 }
 
 /* ---------- Light Mode Overrides ---------- */
-/* Using a broader selector so it catches the light mode class wherever you put it */
-:global(.light-mode) .theme-heading { color: #111827 !important; }
-:global(.light-mode) .theme-subheading { color: #4b5563 !important; }
-:global(.light-mode) .theme-text { color: #374151 !important; }
+
+:global(.light-mode) .theme-heading { color: #000000 !important; }
+:global(.light-mode) .theme-subheading { color: #1f2937 !important; }
+:global(.light-mode) .theme-text { color: #111827 !important; }
 
 :global(.light-mode) .glass-panel,
 :global(.light-mode) .glass-card {
-  background: rgba(245, 242, 235, 0.6); 
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
-  border-left: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(245, 242, 235, 0.5); 
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 :global(.light-mode) .glass-card {

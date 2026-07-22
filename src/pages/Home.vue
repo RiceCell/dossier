@@ -1,13 +1,11 @@
 <template>
-  <!-- Dynamically bind the background and text colors -->
+  <!-- Dynamically bind the background and text colors with a deeper white/cream tone -->
   <div 
     class="page-shell font-sans transition-colors duration-500"
-    :class="isLightOn ? 'light-mode bg-[#f0ede6] text-[#2b2824]' : 'bg-black text-gray-300'"
+    :class="isLightOn ? 'light-mode bg-[#c7bea9] text-[#2b2824]' : 'bg-black text-gray-300'"
   >
-    <!-- Hide the flashlight entirely when lights are on -->
-    <div v-show="!isLightOn" id="flashlight"></div>
 
-    <!-- Adjusted import path based on image_6dc634.png -->
+    <div v-show="!isLightOn" id="flashlight"></div>
     <PullSwitch :isLightOn="isLightOn" @toggle="toggleTheme" />
 
     <div class="content-wrap relative z-10 w-full">
@@ -23,7 +21,7 @@
       <div class="portrait-row flex flex-col md:flex-row justify-center items-center my-8 md:my-12 -translate-y-4">
   <transition name="case-note">
     <div v-if="isLightOn" class="case-note font-dossier text-center md:text-left leading-relaxed md:mb-0">
-      <p class="text-yellow-600 font-bold mb-1">SUBJECT: RUSSEL NIÑO BUNO</p>
+      <p class="text-yellow-700 font-bold mb-1">SUBJECT: RUSSEL NIÑO BUNO</p>
       <p>DEVELOPER. DESIGNER. CURRENTLY EXPLORING MACHINE LEARNING.<br />PROFESSIONAL OVERTHINKER.</p>
       <p class="mt-2 opacity-80">LAST SEEN BUILDING SOMETHING<br />AT 2AM. STATUS: STILL OPEN.</p>
     </div>
@@ -33,7 +31,7 @@
     src="/russel_pic.jpg"
     alt="My portrait"
     class="portrait-img rounded-full border-2 border-white/20 object-cover shadow-2xl transition-all duration-500 ease-out"
-    :class="isLightOn ? 'md:translate-x-10 shadow-yellow-600/30' : 'grayscale shadow-black/50'"
+    :class="isLightOn ? 'md:translate-x-10 shadow-yellow-700/30' : 'grayscale shadow-black/50'"
   />
 </div>
 
@@ -94,13 +92,11 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-// Correct path mapping based on image_6dc634.png
 import PullSwitch from '../components/PullSwitch.vue' 
 
 const isLightOn = ref(false)
 
 const toggleTheme = () => {
-  // Only toggling the Vue ref now; CSS classes handle the rest
   isLightOn.value = !isLightOn.value
 }
 
@@ -127,7 +123,6 @@ const resetTilt = (e) => {
 onMounted(() => {
   const flashlight = document.getElementById('flashlight')
   window.addEventListener('mousemove', (e) => {
-    // Check if flashlight exists before updating to prevent errors when it's hidden
     if(flashlight) {
       window.requestAnimationFrame(() => {
         flashlight.style.setProperty('--mouse-x', `${e.clientX}px`)
@@ -310,14 +305,14 @@ onMounted(() => {
 
 /* ---------- Light Mode Overrides ---------- */
 .light-mode .dossier-card {
-  background: rgba(245, 242, 235, 0.6); 
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
-  border-left: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(230, 222, 208, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .light-mode .dossier-card::before {
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: none;
 }
 
