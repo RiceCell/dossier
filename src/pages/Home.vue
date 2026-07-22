@@ -1,159 +1,335 @@
 <template>
-  <div class = "bg-black min-h-screen text-gray-300 font-sans transition-colors duration-500">
-    <div id = "flashlight"></div>
+  <!-- Dynamically bind the background and text colors -->
+  <div 
+    class="page-shell font-sans transition-colors duration-500"
+    :class="isLightOn ? 'light-mode bg-[#f0ede6] text-[#2b2824]' : 'bg-black text-gray-300'"
+  >
+    <!-- Hide the flashlight entirely when lights are on -->
+    <div v-show="!isLightOn" id="flashlight"></div>
 
-    <button
-      id="theme-toggle"
-      class="fixed top-6 right-6 z-[999] bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-dossier hover:bg-gray-600 transition-colors"
-      @click = "toggleTheme"
-    >
-      [ TURN THE LIGHTS ON ]
-    </button>
+    <!-- Adjusted import path based on image_6dc634.png -->
+    <PullSwitch :isLightOn="isLightOn" @toggle="toggleTheme" />
 
-    <!--Main shit here-->
-    <div class ="relative min-h-screen w-full p-8 md:p-16 overflow-hidden">
-      <header class ="text-center my-16 md:my-24">
-        <h1 class = "font-dossier text-5xl md:text-7xl font-bold text-gray-100 text-light-mode transition-colors duration-500">
-          [ RUSSEL'S DOSSIER ]
+    <div class="content-wrap relative z-10 w-full">
+      <header class="header-block text-center md:mt-0">
+        <h1 class="dossier-title font-dossier font-bold transition-colors duration-500" :class="isLightOn ? 'text-[#2b2824]' : 'text-gray-100'">
+          [ MY DOSSIER ]
         </h1>
-        <p class = "text-lg text-gray-400 text-light-mode mt-4 font-sans transition-colors duration-500">
-          CLASSIFIED // FOR YOUR EYES ONLY
+        <p class="dossier-subtitle font-dossier transition-colors duration-500" :class="isLightOn ? 'text-[#2b2824]' : 'text-gray-100'">
+          HERE LIES EVERYTHING ABOUT MYSELF!
         </p>
       </header>
 
-      <!-- Mah face -->
-      <div class = "flex justify-center my-16">
-          <img 
-            src= "/russel_pic.jpg"
-            alt="My portrait"
-            class="w-48 h-48 rounded-full border-2 border-gray-500 object-cover shadow-md grayscale"
-          />
-      </div>
+      <div class="portrait-row flex flex-col md:flex-row justify-center items-center my-8 md:my-12 -translate-y-4">
+  <transition name="case-note">
+    <div v-if="isLightOn" class="case-note font-dossier text-center md:text-left leading-relaxed md:mb-0">
+      <p class="text-yellow-600 font-bold mb-1">SUBJECT: RUSSEL NIÑO BUNO</p>
+      <p>DEVELOPER. DESIGNER. CURRENTLY EXPLORING MACHINE LEARNING.<br />PROFESSIONAL OVERTHINKER.</p>
+      <p class="mt-2 opacity-80">LAST SEEN BUILDING SOMETHING<br />AT 2AM. STATUS: STILL OPEN.</p>
+    </div>
+  </transition>
 
-      <!--Cards-->
-      <section class = "w-full max-w-5xl mx-auto">
-        <div class = "flex flex-wrap justify-center gap-8 md:gap-12 p-4">
-          <RouterLink 
+  <img
+    src="/russel_pic.jpg"
+    alt="My portrait"
+    class="portrait-img rounded-full border-2 border-white/20 object-cover shadow-2xl transition-all duration-500 ease-out"
+    :class="isLightOn ? 'md:translate-x-10 shadow-yellow-600/30' : 'grayscale shadow-black/50'"
+  />
+</div>
+
+      <section class="cards-section w-full">
+        <div class="cards-row flex flex-wrap justify-center gap-10 md:gap-12 mt-6">
+          <RouterLink
             to="/projects"
-            class = "dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[-3deg]"
+            class="dossier-card card-red block rounded-xl"
+            style="--base-rotate: -3deg;"
+            @mousemove="handleTilt"
+            @mouseleave="resetTilt"
           >
-            <h2 class="font-dossier text-2xl text-yellow-300">Case File: 001</h2>
-            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">PROJECTS</h3>
-            <div class="w-16 h-1 bg-red-600 my-4"></div>
-            <p class="font-sans text-gray-400 text-light-mode">
-              An array of my completed works: code, design, and implementation reports.
+            <h2 class="font-dossier text-xl md:text-2xl text-red-300 drop-shadow-md transition-colors duration-500 header-text">Case File: 001</h2>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">PROJECTS</h3>
+            <div class="w-16 h-1 bg-red-500/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
+            <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
+              an array of my completed works: code, design, and implementation reports.
             </p>
-            <span class="font-dossier text-red-500 text-6xl absolute right-4 bottom-4 opacity-20">TOP SECRET</span>
+            <span class="font-dossier text-red-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">TOP SECRET</span>
           </RouterLink>
 
           <RouterLink
             to="/stuffs"
-            class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[4deg]"
+            class="dossier-card card-blue block rounded-xl"
+            style="--base-rotate: 4deg;"
+            @mousemove="handleTilt"
+            @mouseleave="resetTilt"
           >
-            <h2 class="font-dossier text-2xl text-yellow-300">Exhibit: B</h2>
-            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">STUFFS</h3>
-            <div class="w-16 h-1 bg-blue-500 my-4"></div>
-            <p class="font-sans text-gray-400 text-light-mode">
-              A showcase of things that I admire and obsessed with: films, songs, and many more.
+            <h2 class="font-dossier text-xl md:text-2xl text-blue-300 drop-shadow-md transition-colors duration-500 header-text">Exhibit: B</h2>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">STUFFS</h3>
+            <div class="w-16 h-1 bg-blue-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(96,165,250,0.8)]"></div>
+            <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
+              a showcase of things that I admire and I am obsessed with: films, songs, and many more.
             </p>
-            <span class="font-dossier text-blue-500 text-6xl absolute right-4 bottom-4 opacity-20">FOR REVIEW</span>
+            <span class="font-dossier text-blue-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">FOR REVIEW</span>
           </RouterLink>
 
           <RouterLink
             to="/contact"
-            class="dossier-card block w-72 h-80 bg-gray-900 card-light-mode border border-gray-700 rounded-lg p-6 transform rotate-[-3deg]"
+            class="dossier-card card-green block rounded-xl"
+            style="--base-rotate: -3deg;"
+            @mousemove="handleTilt"
+            @mouseleave="resetTilt"
           >
-            <h2 class="font-dossier text-2xl text-yellow-300">Memo: 6-7</h2>
-            <h3 class="font-sans text-3xl font-bold text-gray-100 text-light-mode mt-2">CONTACT</h3>
-            <div class="w-16 h-1 bg-green-500 my-4"></div>
-            <p class="font-sans text-gray-400 text-light-mode">
+            <h2 class="font-dossier text-xl md:text-2xl text-green-300 drop-shadow-md transition-colors duration-500 header-text">Memo: 6-7</h2>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">CONTACT</h3>
+            <div class="w-16 h-1 bg-green-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
+            <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
               Hire me I'm very broke.
             </p>
-            <span class="font-dossier text-green-500 text-6xl absolute right-4 bottom-4 opacity-20">PRIVATE</span>
+            <span class="font-dossier text-green-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">PRIVATE</span>
           </RouterLink>
         </div>
       </section>
     </div>
   </div>
-
 </template>
 
-
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+// Correct path mapping based on image_6dc634.png
+import PullSwitch from '../components/PullSwitch.vue' 
+
+const isLightOn = ref(false)
 
 const toggleTheme = () => {
-  document.body.classList.toggle('light-mode')
-  const btn = document.getElementById('theme-toggle')
-  btn.textContent = document.body.classList.contains('light-mode')
-    ? '[ TURN THE LIGHTS OFF ]'
-    : '[ TURN THE LIGHTS ON ]'
+  // Only toggling the Vue ref now; CSS classes handle the rest
+  isLightOn.value = !isLightOn.value
+}
+
+const handleTilt = (e) => {
+  const card = e.currentTarget
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  
+  const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -12
+  const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 12
+  
+  card.style.setProperty('--rx', `${rotateX}deg`)
+  card.style.setProperty('--ry', `${rotateY}deg`)
+  card.style.setProperty('--glow-x', `${x}px`)
+  card.style.setProperty('--glow-y', `${y}px`)
+}
+
+const resetTilt = (e) => {
+  e.currentTarget.style.setProperty('--rx', '0deg')
+  e.currentTarget.style.setProperty('--ry', '0deg')
 }
 
 onMounted(() => {
   const flashlight = document.getElementById('flashlight')
   window.addEventListener('mousemove', (e) => {
-    window.requestAnimationFrame(() => {
-      flashlight.style.setProperty('--mouse-x', `${e.clientX}px`)
-      flashlight.style.setProperty('--mouse-y', `${e.clientY}px`)
-    })
+    // Check if flashlight exists before updating to prevent errors when it's hidden
+    if(flashlight) {
+      window.requestAnimationFrame(() => {
+        flashlight.style.setProperty('--mouse-x', `${e.clientX}px`)
+        flashlight.style.setProperty('--mouse-y', `${e.clientY}px`)
+      })
+    }
   })
 })
 </script>
 
-
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;700&display=swap');
 
-.font-dossier{
-  font-family: 'Special Elite', monospace;
-}
-.font-sans{
-  font-family: 'Inter', sans-serif;
+.font-dossier { font-family: 'Special Elite', monospace; }
+.font-sans { font-family: 'Inter', sans-serif; }
+
+.page-shell {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-#flashlight{
+@media (min-width: 768px) {
+  .page-shell {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+.content-wrap { padding: 2rem 1.25rem; }
+
+@media (min-width: 768px) {
+  .content-wrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+  }
+}
+
+#flashlight {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(circle 300px at var(--mouse-x, 0px) var(--mouse-y, 0px),
-  rgba(0, 0, 0, 0) 0%,
-  rgba(0, 0, 0, 0.85) 40%,
-  rgba(0, 0, 0, 0.98) 100%);
+  inset: 0;
+  background: radial-gradient(circle 350px at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.98) 100%);
   pointer-events: none;
   z-index: 9998;
-  transition: background 0.1s ease-out;
 }
 
-body.light-mode #flashlight {
-  display: none;
+.header-block { flex-shrink: 0; }
+.dossier-title { font-size: clamp(2.25rem, 6vw, 4.5rem); }
+.dossier-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.875rem); }
+
+.portrait-img {
+  position: relative;
+  z-index: 1;
+  width: clamp(7rem, 14vh, 12rem);
+  height: clamp(7rem, 14vh, 12rem);
 }
 
-body.light-mode {
-  background-color: #f3f4f6;
+.case-note { color: #d1d5db; max-width: 20rem; }
+.light-mode .case-note { color: #4a453f; }
+
+.case-note-enter-active { transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s; }
+.case-note-leave-active { transition: opacity 0.25s ease, transform 0.25s ease; }
+.case-note-enter-from, .case-note-leave-to { opacity: 0; transform: translateY(12px); }
+@media (min-width: 768px) {
+  .case-note-enter-from, .case-note-leave-to { transform: translateX(24px); }
 }
 
-body.light-mode .text-light-mode {
-  color: #1f2937;
+.cards-section {
+  max-width: 72rem;
+  margin: 0 auto;
+  perspective: 2000px;
 }
+
+@media (min-width: 768px) {
+  .cards-section {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cards-row { width: 100%; }
+
+/* Default Dark Mode Card Text */
+.title-text { color: #ffffff; }
+.desc-text { color: #e5e7eb; }
 
 .dossier-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.dossier-card:hover {
-  transform: translateY(-20px) rotate(0deg) !important;
-  box-shadow: 0 10px 100px rgba(255, 255, 255, 0.1);
-  z-index: 10;
-}
-@keyframes glitch {
-  0%, 50%, 100% { transform: translate(0, 0); }
-  10%, 40% { transform: translate(-2px, 2px); }
-  20%, 30% { transform: translate(2px, -2px); }
-}
-.glitch-hover:hover {
-  animation: glitch 0.5s infinite;
+  position: relative;
+  width: clamp(15rem, 80vw, 20rem);
+  height: clamp(17rem, 46vh, 24rem);
+  padding: 2rem;
+  
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  
+  transform-style: preserve-3d;
+  transform:
+    rotate(var(--base-rotate, 0deg))
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
+    
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.5s ease;
+  will-change: transform;
 }
 
+@media (min-width: 768px) {
+  .dossier-card {
+    width: clamp(16rem, 24vw, 22rem);
+    height: clamp(18rem, 44vh, 26rem);
+  }
+}
+
+.dossier-card::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 24px;
+  width: 100px;
+  height: 20px;
+  border-radius: 8px 8px 0 0;
+  background: inherit;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+  z-index: -1;
+  transition: inherit;
+}
+
+.dossier-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 250px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 255, 255, 0.15), 
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.dossier-card:hover::after { opacity: 1; }
+
+.card-red { box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.3); }
+.card-blue { box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
+.card-green { box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.3); }
+
+.dossier-card:hover {
+  transform:
+    translateY(-15px) scale(1.05)
+    rotate(0deg)
+    rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
+  z-index: 20;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-red:hover { box-shadow: 0 20px 40px -10px rgba(220, 38, 38, 0.5), 0 0 20px rgba(220, 38, 38, 0.2); }
+.card-blue:hover { box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2); }
+.card-green:hover { box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.5), 0 0 20px rgba(34, 197, 94, 0.2); }
+
+/* ---------- Light Mode Overrides ---------- */
+.light-mode .dossier-card {
+  background: rgba(245, 242, 235, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.light-mode .dossier-card::before {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: none;
+}
+
+/* Fix text colors washing out in light mode */
+.light-mode .title-text { color: #1f2937; }
+.light-mode .desc-text { color: #4b5563; }
+.light-mode .card-red .header-text { color: #dc2626; }
+.light-mode .card-blue .header-text { color: #2563eb; }
+.light-mode .card-green .header-text { color: #16a34a; }
+.light-mode .bg-text { opacity: 0.1; }
+
+.light-mode .card-red { box-shadow: 0 10px 30px -10px rgba(220, 38, 38, 0.15); }
+.light-mode .card-blue { box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15); }
+.light-mode .card-green { box-shadow: 0 10px 30px -10px rgba(34, 197, 94, 0.15); }
 </style>

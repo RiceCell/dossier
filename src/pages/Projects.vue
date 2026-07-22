@@ -164,9 +164,17 @@ const projects = ref([
   {
     id: 6,
     title: 'Crossroads of Us',
-    description: 'An Exit 8–inspired 2D top-down game presented at UPCSG GameJam 2026 by the team TheWinnerTakesItAllTheLoserStandingSmall.',
+    description: 'An Exit 8–inspired 2D top-down game presented at UPCSG GameJam 2026 hosted by UPCSG by the team TheWinnerTakesItAllTheLoserStandingSmall.',
     tracks: ['GDScript'],
     imageUrl: '/gamejam.jpg'
+  },
+
+  {
+    id: 7,
+    title: 'Blind Spot',
+    description: 'An offline-first, AI-powered platform that predicts localized power and connectivity failures during typhoons. It aims to function as a disaster resilience engine within Cebu City. Presented and pitched at Innovation Cup 2026 hosted by the team The Russters. Ranked top 15 among 50 entries.',
+    tracks: ['Vue', 'CSS', 'Typescript'],
+    imageUrl: '/innovationcup.jpg'
   }
 ]);
 
