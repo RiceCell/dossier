@@ -59,7 +59,7 @@
               {{ project.title }}
             </h3>
             
-            <p class="text-sm flex-grow mb-6 theme-text opacity-90 leading-relaxed transition-colors duration-500">
+            <p class="text-sm grow mb-6 theme-text opacity-90 leading-relaxed transition-colors duration-500">
               {{ project.description }}
             </p>
 
@@ -138,7 +138,7 @@ const projects = ref([
     description: 'A waste disposal tracker application as part of a project for CMSC21 Finals. Awarded 4th Best Project overall.',
     tracks: ['QT', 'C++'],
     imageUrl: '/clean_up.png',
-    link: null // Add your links here when ready! E.g. 'https://github.com/your-username/repo'
+    link: 'https://github.com/raretutal/Project-CleanUp'
   },
   { 
     id: 2, 
@@ -146,7 +146,7 @@ const projects = ref([
     description: 'A website generating educational roadmaps for schools in Cebu as a submission from Team M & Ems for the IBPAP Hack-It Challenge 2025. Helped present and pitch the final output.',
     tracks: ['Tailwind'],
     imageUrl: '/iskwelai.png',
-    link: null
+    link: 'https://github.com/AngeloManlangit/i-skwel.ai'
   },
   { 
     id: 3, 
@@ -154,7 +154,7 @@ const projects = ref([
     description: 'An interactive website for LOOK! Productions, solely spearheaded by Sir Raphael Chamen in UP Cebu.',
     tracks: ['Tailwind', 'Javascript'],
     imageUrl: '/look_site.png',
-    link: null
+    link: 'https://alookproduction.com/'
   },
   { 
     id: 4, 
@@ -170,7 +170,7 @@ const projects = ref([
     description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
     tracks: ['Tailwind', 'Javascript', 'Gemini API'],
     imageUrl: '/fallasee.png',
-    link: null
+    link: 'https://github.com/RiceCell/fallasee'
   },
   {
     id: 6,
@@ -186,7 +186,7 @@ const projects = ref([
     description: 'An offline-first, AI-powered platform that predicts localized power and connectivity failures during typhoons. It aims to function as a disaster resilience engine within Cebu City. Presented and pitched at Innovation Cup 2026 hosted by the team The Russters. Ranked top 15 among 50 entries.',
     tracks: ['Vue', 'CSS', 'Typescript'],
     imageUrl: '/innovationcup.jpg',
-    link: null
+    link: 'https://github.com/AngeloManlangit/BlindSpot'
   },
   {
     id: 8,
