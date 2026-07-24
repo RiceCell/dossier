@@ -5,9 +5,12 @@
     <div class="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 border-r px-8 py-12 sidebar-bg transition-colors duration-500">
       
       <!-- Title -->
-      <RouterLink to="/" class="font-dossier text-2xl font-bold text-gray-100 theme-title hover:text-yellow-500 transition-colors mb-10 tracking-wide block">
+      <RouterLink to="/" class="font-dossier text-2xl font-bold text-gray-100 theme-title hover:text-yellow-500 transition-colors tracking-wide block">
         My Dossier
       </RouterLink>
+      <p class="font-dossier text-xs text-gray-400 theme-text opacity-70 mb-10 tracking-wide">
+        Russel Niño Buno
+      </p>
 
       <!-- Theme Toggle -->
       <button
@@ -41,27 +44,73 @@
           Projects
         </RouterLink>
 
-          <RouterLink to="/experience" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
+          <RouterLink to="/" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
           </svg>
           Experience
         </RouterLink>
 
+        <RouterLink to="/stack" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
+    <rect x="4" y="4" width="16" height="4.5" rx="1.25" />
+    <rect x="4" y="9.75" width="16" height="4.5" rx="1.25" />
+    <rect x="4" y="15.5" width="16" height="4.5" rx="1.25" />
+  </svg>
+  Stack
+</RouterLink>
+
         <RouterLink to="/stuffs" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
             <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
           </svg>
-          Extras
+          Extra
         </RouterLink>
 
-        <RouterLink to="/contact" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-          </svg>
-          Contact
-        </RouterLink>
+      </div>
 
+      <!-- Connect With Me -->
+      <div class="mt-auto pt-6 border-t theme-border-light">
+        <p class="font-dossier text-xs text-gray-400 theme-text opacity-60 mb-4 tracking-widest">
+          Connect with me!
+        </p>
+        <div class="flex flex-col space-y-4 font-dossier text-sm">
+
+          <a
+            href="mailto:russelbaltazar.buno@gmail.com"
+            class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            Gmail
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/russel-buno-234055287/"
+            target="_blank"
+            rel="noopener"
+            class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125m16.5 0v11.25C20.25 19.903 16.556 21.75 12 21.75s-8.25-1.847-8.25-4.125V6.375" />
+            </svg>
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/RiceCell"
+            target="_blank"
+            rel="noopener"
+            class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+            GitHub
+          </a>
+
+        </div>
       </div>
     </div>
 
@@ -119,6 +168,10 @@ import { isLightOn, toggleTheme } from '../theme.js'
 .sidebar-bg-mobile {
   background-color: #080808;
   border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.theme-border-light {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Theme Toggle Switch */
@@ -196,6 +249,10 @@ import { isLightOn, toggleTheme } from '../theme.js'
   border-top-color: var(--light-border) !important;
 }
 
+.light-mode .theme-border-light {
+  border-color: var(--light-border) !important;
+}
+
 /* Force Text Colors */
 .light-mode .theme-title { color: var(--light-text-dark) !important; }
 .light-mode .theme-text { color: var(--light-text-gray) !important; }
@@ -203,7 +260,7 @@ import { isLightOn, toggleTheme } from '../theme.js'
 
 .light-mode .router-link-active.nav-link {
   color: var(--light-text-black) !important;
-  font-weight: bold;
+  text-shadow: 0 0 0.6px currentColor, 0 0 0.6px currentColor;
 }
 
 .light-mode .theme-switch-track {
