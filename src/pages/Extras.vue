@@ -23,12 +23,11 @@
           <div class="polaroid-card group tilt-left">
             <div class="tape"></div>
             <div class="image-box bg-gray-800">
-              <img src="/placeholder.png" alt="UNISO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
             </div>
             <div class="mt-4 font-dossier">
               <h3 class="text-red-400 font-bold text-lg">UNISO SECGEN</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Supervised UNISO operations. Handled classified paperwork and organizational logistics.
+                UNISO stuff thing
               </p>
             </div>
           </div>
@@ -44,7 +43,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-red-400 font-bold text-lg">INTERHIGH HEAD</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Directed committee initiatives. Ensured all operatives met weekly quotas.
+                competition head kineme
               </p>
             </div>
           </div>
@@ -60,7 +59,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-red-400 font-bold text-lg">BLOCK REPRESENTATIVE</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Oversaw strategic planning for regional deployment.
+                i miss block b
               </p>
             </div>
           </div>
@@ -95,14 +94,11 @@
           <div class="polaroid-card group tilt-right">
             <div class="tape"></div>
             <div class="image-box bg-gray-800">
-               <div class="w-full h-full flex items-center justify-center text-gray-500 font-dossier bg-gray-900 border border-gray-700/50">
-                 [ IMAGE EXPUNGED ]
-               </div>
             </div>
             <div class="mt-4 font-dossier">
               <h3 class="text-blue-400 font-bold text-lg">PAGSUGAT 2026</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Mentoring sessions. Successfully transferred vital intel to junior operatives.
+                Mentoring sessions
               </p>
             </div>
           </div>
@@ -118,7 +114,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-blue-400 font-bold text-lg">TUDLO SESSIONS</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Conducted rapid-response training exercises for 50+ recruits.
+                katung upcsg thing
               </p>
             </div>
           </div>
@@ -145,7 +141,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-green-500 font-bold text-lg">NSPC 2018</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Event handling and crowd control. Zero casualties reported.
+                before jhs!
               </p>
             </div>
           </div>
@@ -161,7 +157,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-green-500 font-bold text-lg">RSPC 2024</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Secured equipment and managed supply chains for regional summit.
+                before shs
               </p>
             </div>
           </div>
@@ -177,7 +173,7 @@
             <div class="mt-4 font-dossier">
               <h3 class="text-green-500 font-bold text-lg">RIZAL YOUTH </h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Also include another that talks about how I'm a writer in TechnoQuills in SHS.!!
+                to TechnoQuills in SHS.!!
               </p>
             </div>
           </div>
@@ -202,45 +198,13 @@
                </div>
             </div>
             <div class="mt-4 font-dossier">
-              <h3 class="text-yellow-400 font-bold text-lg">OPERATION NAME</h3>
+              <h3 class="text-yellow-400 font-bold text-lg">YC</h3>
               <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Field deployment for community relief efforts. Details classified pending review.
+                to add: owwa stuffs
               </p>
             </div>
           </div>
-
-          <!-- Evidence: Placeholder -->
-          <div class="polaroid-card group tilt-right">
-            <div class="tape"></div>
-            <div class="image-box bg-gray-800">
-               <div class="w-full h-full flex items-center justify-center text-gray-500 font-dossier bg-gray-900 border border-gray-700/50">
-                 [ REDACTED ]
-               </div>
-            </div>
-            <div class="mt-4 font-dossier">
-              <h3 class="text-yellow-400 font-bold text-lg">OPERATION NAME</h3>
-              <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Coordinated outreach logistics on behalf of allied civilian organizations.
-              </p>
-            </div>
-          </div>
-
-          <!-- Evidence: Placeholder -->
-          <div class="polaroid-card group tilt-left-slight">
-            <div class="tape"></div>
-            <div class="image-box bg-gray-800">
-               <div class="w-full h-full flex items-center justify-center text-gray-500 font-dossier bg-gray-900 border border-gray-700/50">
-                 [ DATA MISSING ]
-               </div>
-            </div>
-            <div class="mt-4 font-dossier">
-              <h3 class="text-yellow-400 font-bold text-lg">OPERATION NAME</h3>
-              <p class="text-sm text-gray-800 mt-1 leading-tight font-sans font-medium">
-                Provided on-the-ground support for a local charitable initiative.
-              </p>
-            </div>
-          </div>
-
+      
         </div>
       </section>
 

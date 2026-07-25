@@ -280,9 +280,6 @@ const calculatedStats = computed(() => {
 :global(.light-mode) .glass-panel,
 :global(.light-mode) .glass-card {
   background: var(--light-card-bg); 
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.8);
-  border-left: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 :global(.light-mode) .glass-card {

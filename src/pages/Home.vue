@@ -48,39 +48,39 @@
             <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">PROJECTS</h3>
             <div class="w-16 h-1 bg-red-500/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              an array of my completed works: code, design, and implementation reports.
+              an array of my completed works: code, design, and certifications.
             </p>
             <span class="font-dossier text-red-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">TOP SECRET</span>
           </RouterLink>
 
           <RouterLink
-            to="/stuffs"
+            to="/extras"
             class="dossier-card card-blue block rounded-xl"
             style="--base-rotate: 4deg;"
             @mousemove="handleTilt"
             @mouseleave="resetTilt"
           >
             <h2 class="font-dossier text-xl md:text-2xl text-blue-300 drop-shadow-md transition-colors duration-500 header-text">Exhibit: B</h2>
-            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">STUFFS</h3>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">EXPERIENCES</h3>
             <div class="w-16 h-1 bg-blue-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(96,165,250,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              a showcase of things that I admire and I am obsessed with: films, songs, and many more.
+              a linear record of my experiences, both within komsai and outside.
             </p>
             <span class="font-dossier text-blue-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">FOR REVIEW</span>
           </RouterLink>
 
           <RouterLink
-            to="/contact"
+            to="/stuffs"
             class="dossier-card card-green block rounded-xl"
             style="--base-rotate: -3deg;"
             @mousemove="handleTilt"
             @mouseleave="resetTilt"
           >
             <h2 class="font-dossier text-xl md:text-2xl text-green-300 drop-shadow-md transition-colors duration-500 header-text">Memo: 6-7</h2>
-            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">CONTACT</h3>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">OTHERS</h3>
             <div class="w-16 h-1 bg-green-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              Hire me I'm very broke.
+              other extracurricular and stuff
             </p>
             <span class="font-dossier text-green-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">PRIVATE</span>
           </RouterLink>
