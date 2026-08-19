@@ -9,27 +9,46 @@
         <p class="font-dossier theme-subheading mt-2 transition-colors duration-500">INDEX OF COMPLETED PROJECTS IN THE PAST</p>
       </header>
 
-      <!-- Stats Bar (Glassy) -->
+      <!-- Stats Bar (Glassy, Collapsible) -->
       <div class="mb-12 p-6 glass-panel rounded-xl">
-        <h2 class="font-dossier text-lg md:text-xl font-bold mb-4 theme-heading transition-colors duration-500">RESOURCE DISTRIBUTION</h2>
-        
-        <div class="h-3 flex w-full rounded-full overflow-hidden mb-4 bg-black/40 shadow-inner" aria-hidden="true">
-          <div 
-            v-for="stat in calculatedStats.stats" 
-            :key="stat.name"
-            :class="stat.colorClass"
-            :style="{ width: stat.percentage + '%' }"
-            class="transition-all duration-1000 ease-out hover:brightness-125"
-          ></div>
-        </div>
+        <button
+          type="button"
+          class="w-full flex items-center justify-between gap-2 cursor-pointer bg-transparent border-0 p-0 text-left"
+          @click="showStats = !showStats"
+          :aria-expanded="showStats"
+          aria-controls="resource-distribution-panel"
+        >
+          <h2 class="font-dossier text-lg md:text-xl font-bold theme-heading transition-colors duration-500">
+            RESOURCE DISTRIBUTION
+          </h2>
+          <span
+            class="font-dossier theme-heading transition-transform duration-300"
+            :class="{ '-rotate-90': !showStats }"
+            aria-hidden="true"
+          >
+            ▾
+          </span>
+        </button>
 
-        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-dossier list-none p-0">
-          <li v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center theme-text transition-colors duration-500">
-            <span :class="[stat.colorClass, 'w-3 h-3 rounded-sm mr-2 shadow-sm']" aria-hidden="true"></span>
-            <span>{{ stat.name }}</span>
-            <span class="ml-1 opacity-60">[{{ stat.percentage }}%]</span>
-          </li>
-        </ul>
+        <div v-show="showStats" id="resource-distribution-panel" class="mt-4">
+          <div class="h-3 flex w-full rounded-full overflow-hidden mb-4 bg-black/40 shadow-inner" aria-hidden="true">
+            <div 
+              v-for="stat in calculatedStats.stats" 
+              :key="stat.name"
+              :class="stat.colorClass"
+              :style="{ width: stat.percentage + '%' }"
+              class="transition-all duration-1000 ease-out hover:brightness-125"
+            ></div>
+          </div>
+
+          <ul class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-dossier list-none p-0">
+            <li v-for="stat in calculatedStats.stats" :key="stat.name" class="flex items-center theme-text transition-colors duration-500">
+              <span :class="[stat.colorClass, 'w-3 h-3 rounded-sm mr-2 shadow-sm']" aria-hidden="true"></span>
+              <span>{{ stat.name }}</span>
+              <span class="ml-1 opacity-60">[{{ stat.percentage }}%]</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Project Grid -->
@@ -119,16 +138,19 @@
 import { ref, computed } from 'vue';
 import { isLightOn } from '../theme.js';
 
+const showStats = ref(true);
+
 const trackColors = {
   'C++': 'bg-indigo-500',
   'QT': 'bg-pink-500',
-  'Tailwind': 'bg-blue-400',
   'Javascript': 'bg-orange-500',
   'PostgreSQL': 'bg-yellow-400',
   'GDScript': 'bg-purple-500',
   'Vue': 'bg-emerald-500',
   'CSS': 'bg-blue-600',
-  'Typescript': 'bg-blue-400'
+  'Typescript': 'bg-blue-400',
+  'Gemini API': 'bg-teal-500',
+  'Python': 'bg-yellow-500',
 };
 
 const projects = ref([
@@ -144,7 +166,7 @@ const projects = ref([
     id: 2, 
     title: 'i.skwelai', 
     description: 'A website generating educational roadmaps for schools in Cebu as a submission from Team M & Ems for the IBPAP Hack-It Challenge 2025. Helped present and pitch the final output.',
-    tracks: ['Tailwind'],
+    tracks: ['Vue'],
     imageUrl: '/iskwelai.png',
     link: 'https://github.com/AngeloManlangit/i-skwel.ai'
   },
@@ -152,7 +174,7 @@ const projects = ref([
     id: 3, 
     title: 'LOOK! Productions', 
     description: 'An interactive website for LOOK! Productions, solely spearheaded by Sir Raphael Chamen in UP Cebu.',
-    tracks: ['Tailwind', 'Javascript'],
+    tracks: ['Vue', 'Javascript'],
     imageUrl: '/look_site.png',
     link: 'https://alookproduction.com/'
   },
@@ -160,7 +182,7 @@ const projects = ref([
     id: 4, 
     title: 'Finding Dormy', 
     description: 'A matchmaking website for finding available dorms in Cebu built for the Cebu Hacktoberfest 2025 Hackathon. Partially finished.',
-    tracks: ['Tailwind', 'PostgreSQL', 'Javascript'],
+    tracks: ['CSS', 'PostgreSQL', 'Javascript'],
     imageUrl: '/findingdormy.png',
     link: null
   },
@@ -168,7 +190,7 @@ const projects = ref([
     id: 5, 
     title: 'Fallasee', 
     description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
-    tracks: ['Tailwind', 'Javascript', 'Gemini API'],
+    tracks: ['Vue', 'Javascript', 'Gemini API'],
     imageUrl: '/fallasee.png',
     link: 'https://github.com/RiceCell/fallasee'
   },
@@ -184,7 +206,7 @@ const projects = ref([
     id: 7,
     title: 'Blind Spot',
     description: 'An offline-first, AI-powered platform that predicts localized power and connectivity failures during typhoons. It aims to function as a disaster resilience engine within Cebu City. Presented and pitched at Innovation Cup 2026 hosted by the team The Russters. Ranked top 15 among 50 entries.',
-    tracks: ['Vue', 'CSS', 'Typescript'],
+    tracks: ['Vue', 'Typescript'],
     imageUrl: '/innovationcup.jpg',
     link: 'https://github.com/AngeloManlangit/BlindSpot'
   },
@@ -192,7 +214,7 @@ const projects = ref([
     id: 8,
     title: 'HuddleUP',
     description: 'A lightweight, real-time collaborative task management app that lets groups create temporary shared rooms to organize and track tasks together. Once all tasks within a room are completed by its members, the room automatically dissolves. This final project earned a perfect score for CMSC 127: File Processing and Database Systems.',
-    tracks: ['Vue', 'CSS', 'Typescript'],
+    tracks: ['Vue','Typescript'],
     imageUrl: '/huddleup.jpg',
     link: 'https://github.com/DareDevilLuc/HuddleUP'
   },
@@ -203,7 +225,15 @@ const projects = ref([
     tracks: ['Supervity'],
     imageUrl: '/supervity.png', 
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7484687732963962880/'
-  }
+  },
+  {
+    id: 10,
+    title: 'SugboKlaro',
+    description: 'A digital transparency and compliance checker of documents posted from the Full Disclosure Policy Portal as per DILG. This serves as a submission from Team M & Ems for the IBPAP Hack-It Challenge 2026. Part of the chosen 20 teams and I helped pitch and present the MVP.',
+    tracks: ['Python', 'Vue'],
+    imageUrl: '/sugboklaro.jpg',
+    link: ' https://github.com/RiceCell/SugboKlaro'
+  },
 ]);
 
 const calculatedStats = computed(() => {
