@@ -229,7 +229,7 @@ const projects = ref([
   {
     id: 9,
     title: 'Onboarding & Retention AI Employee',
-    description: 'A robust AI Orchestrator built for the Supervity Autopilot Hackathon with Kyle Casirayan, representing Team Hash:Map. It coordinates six distinct AI Operators to monitor siloed HR, IT, and payroll systems, catching IT delays and spotting flight risks early to protect crucial day-90 retention rates.',
+    description: 'A robust AI Orchestrator built for the Supervity Autopilot Hackathon with Kyle Casirayan, representing Team Hash:Map. It coordinates six distinct AI Operators to monitor siloed HR, IT, and payroll systems, catching IT delays and spotting flight risks early to protect crucial day-90 retention rates. One of the finalists under the HR Category.',
     tracks: ['Supervity'],
     imageUrl: '/supervity.png', 
     link: 'https://www.linkedin.com/feed/update/urn:li:activity:7484687732963962880/'
