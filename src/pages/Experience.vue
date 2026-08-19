@@ -23,7 +23,7 @@
           <div class="polaroid-card group tilt-left">
             <div class="tape"></div>
             <div class="image-box bg-gray-800">
-              <img src="/placeholder.png" alt="UNISO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              <img src="/my-logo.png" alt="UNISO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
             </div>
             <div class="mt-4 font-dossier">
               <h3 class="text-red-400 font-bold text-lg">UNISO SECGEN</h3>

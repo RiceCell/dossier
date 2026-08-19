@@ -44,12 +44,12 @@
           Projects
         </RouterLink>
 
-          <RouterLink to="/" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
+          <span aria-disabled="true" class="nav-link group flex items-center gap-4 text-gray-500 theme-text opacity-60 cursor-not-allowed">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
           </svg>
           Experience
-        </RouterLink>
+        </span>
 
         <RouterLink to="/stack" class="nav-link group flex items-center gap-4 text-gray-400 theme-text hover:text-white transition-colors">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity">

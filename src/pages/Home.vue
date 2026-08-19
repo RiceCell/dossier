@@ -48,7 +48,7 @@
             <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">PROJECTS</h3>
             <div class="w-16 h-1 bg-red-500/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              an array of my completed works: code, design, and certifications.
+              an array of my completed works: school projects, outside works and certifications.
             </p>
             <span class="font-dossier text-red-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">TOP SECRET</span>
           </RouterLink>
@@ -80,7 +80,7 @@
             <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">OTHERS</h3>
             <div class="w-16 h-1 bg-green-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              other extracurricular and stuff
+              other extracurriculars and side quests gathered
             </p>
             <span class="font-dossier text-green-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">PRIVATE</span>
           </RouterLink>
