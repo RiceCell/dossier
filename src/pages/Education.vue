@@ -7,7 +7,7 @@
           [ EDUCATIONAL BACKGROUND ]
         </h1>
         <p class="font-dossier text-gray-400 theme-subheading mt-2 transition-colors duration-500">
-          A LINEAR RECORD OF MY EDUCATION
+          A LINEAR WALKTHROUGH OF MY EDUCATION
         </p>
       </header>
 
@@ -98,16 +98,20 @@ const education = [
   {
     level: 'College',
     school: 'University of the Philippines Cebu',
-    detail: 'BS Computer Science — 3rd Year',
+    detail: 'BS Computer Science - 3rd Year',
     year: '2024 — Present',
     current: true,
     honors: [
-      'University Scholar — First Year',
-      'University Scholar — Second Year'
+      'First Year, First Semester: University Scholar',
+      'First Year, Second Semester: University Scholar',
+      'Second Year, First Semester: University Scholar',
+      'Second Year, Second Semester: University Scholar'
     ],
     roles: [
+        'OWWA Education for Development Scholarship Program (EDSP) Scholar ',
       'Member, UP Computer Science Guild',
-      'Secretary-General, UNISO (2025 — 2026)'
+      'Secretary-General, UNISO (2025 - 2026)', 
+      'Election Committee, UPCSG (2025 - 2026)'
     ]
   },
   {
@@ -116,15 +120,15 @@ const education = [
     year: '2022 — 2024',
     current: false,
     honors: [
-      'Grade 11 — With Honors (Top 16 Overall)',
-      'Grade 12 — With High Honors (Top 5 Overall)'
+      'Grade 11: With Honors (Top 16 Overall)',
+      'Grade 12: With High Honors (Top 5 Overall)'
     ],
     awards: [
       'SSC Awardee',
       'Special Research Merit Awardee'
     ],
     roles: [
-      'Member, Committee on Liaison — SHS Supreme Student Council, 7th Congress',
+      'Member, Committee on Liaison - SHS Supreme Student Council, 7th Congress',
       'Head of Finance, The Technologian Quills',
       'Editorial Writer, The Technologian Quills',
       'Councilor, Commission on Elections (COMELEC)',
@@ -151,7 +155,6 @@ const education = [
       'Achievement Awardee',
       'Academic Excellence Awardee',
       'National Schools Press Conference (NSPC) Qualifier',
-      'Regional Schools Press Conference (RSPC) 3rd Placer — Editorial Writing English',
       'PASIKLABAN, 2nd Placer',
       'Central Visayas Regional Athletic Association (CVIRAA) Qualifier — Badminton Singles'
     ]

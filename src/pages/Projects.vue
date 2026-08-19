@@ -118,7 +118,7 @@
       <!-- Certificates -->
       <div class="mt-20 text-center pb-12"> 
         <h2 class="font-dossier text-2xl font-bold mb-6 theme-heading transition-colors duration-500">
-          [ LOGGED CLEARANCES & CERTIFICATES ]
+          [ CERTIFICATES ]
         </h2>
         
         <div class="max-w-xl mx-auto glass-panel p-6">
@@ -126,6 +126,14 @@
             <li class="flex items-start">
               <span class="text-yellow-500 mr-3 mt-1">▸</span>
               <span><strong>SQL Associate</strong> — Issued by DataCamp</span>
+            </li>
+          </ul>
+        </div>
+        <div class="max-w-xl mx-auto glass-panel p-6">
+          <ul class="space-y-3 text-left font-sans theme-text transition-colors duration-500 list-none p-0">
+            <li class="flex items-start">
+              <span class="text-yellow-500 mr-3 mt-1">▸</span>
+              <span><strong>Developing AI</strong> — Issued by DataCamp</span>
             </li>
           </ul>
         </div>
@@ -149,7 +157,7 @@ const trackColors = {
   'Vue': 'bg-emerald-500',
   'CSS': 'bg-blue-600',
   'Typescript': 'bg-blue-400',
-  'Gemini API': 'bg-teal-500',
+  'Gemini AI': 'bg-teal-500',
   'Python': 'bg-yellow-500',
 };
 
@@ -190,7 +198,7 @@ const projects = ref([
     id: 5, 
     title: 'Fallasee', 
     description: 'An educational website that serves as your logic professor in your pocket. Built as a passion project over the Christmas break.',
-    tracks: ['Vue', 'Javascript', 'Gemini API'],
+    tracks: ['Vue', 'Javascript', 'Gemini AI'],
     imageUrl: '/fallasee.png',
     link: 'https://github.com/RiceCell/fallasee'
   },

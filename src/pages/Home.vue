@@ -54,24 +54,24 @@
           </RouterLink>
 
           <RouterLink
-            to="/extras"
+            to="/education"
             class="dossier-card card-blue block rounded-xl"
             style="--base-rotate: 4deg;"
             @mousemove="handleTilt"
             @mouseleave="resetTilt"
           >
             <h2 class="font-dossier text-xl md:text-2xl text-blue-300 drop-shadow-md transition-colors duration-500 header-text">Exhibit: B</h2>
-            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">EXPERIENCES</h3>
+            <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">EDUCATION</h3>
             <div class="w-16 h-1 bg-blue-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(96,165,250,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              a linear record of my experiences, both within komsai and outside.
+              a linear record of my education, from highschool to college.
             </p>
             <span class="font-dossier text-blue-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">FOR REVIEW</span>
           </RouterLink>
 
-          <RouterLink
-            to="/stuffs"
-            class="dossier-card card-green block rounded-xl"
+          <div
+            aria-disabled="true"
+            class="dossier-card card-green block rounded-xl cursor-not-allowed"
             style="--base-rotate: -3deg;"
             @mousemove="handleTilt"
             @mouseleave="resetTilt"
@@ -80,10 +80,10 @@
             <h3 class="font-sans text-2xl md:text-3xl font-bold mt-2 transition-colors duration-500 title-text">OTHERS</h3>
             <div class="w-16 h-1 bg-green-400/80 rounded-full my-3 md:my-4 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
             <p class="font-sans text-sm md:text-base transition-colors duration-500 desc-text">
-              other extracurriculars and side quests gathered
+              other extracurriculars and side quests gathered all through the years
             </p>
             <span class="font-dossier text-green-500/30 text-4xl md:text-6xl absolute right-4 bottom-4 transition-colors duration-500 bg-text">PRIVATE</span>
-          </RouterLink>
+          </div>
         </div>
       </section>
     </div>
