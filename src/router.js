@@ -4,6 +4,7 @@ import Projects from './pages/Projects.vue'
 import Stuffs from './pages/Extras.vue'
 import Experience from './pages/Experience.vue'
 import Stack from './pages/Stack.vue'
+import Education from './pages/Education.vue'
 
 
 const routes = [
@@ -11,6 +12,7 @@ const routes = [
     { path: '/projects', component: Projects },
     { path: '/stuffs', component: Stuffs },
     { path: '/experience', component: Experience },
+    { path: '/education', component: Education },
     { path: '/stack', component: Stack }
 ]
 

@@ -7,7 +7,7 @@
           [ EXTRAS ]
         </h1>
         <p class="font-dossier text-gray-400 theme-subheading mt-2 transition-colors duration-500">
-          DE-CLASSIFIED EXTRACURRICULARS & OTHER RECORDS
+          DE-CLASSIFIED EXTRACURRICULARS & OTHER RECORDS OF MY SIDE QUESTS
         </p>
       </header>
 
